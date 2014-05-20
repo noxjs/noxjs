@@ -9,13 +9,13 @@
 	<script src="nox.js"></script>
 
 	<script>
-		var View = Nox('APP.View', '*', function(box) {
+		Nox('APP.View', '*', function(box) {
 			this.initialize = function() {
 				console.log(box);
 			}
 		});
 
-		var Home = Nox('APP.Home', ['dom', 'ajax'], function(box) {
+		Nox('APP.Home', ['dom', 'ajax'], function(box) {
 			this.initialize = function() {
 				console.log(box);
 			}
