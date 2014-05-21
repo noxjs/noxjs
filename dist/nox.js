@@ -6,18 +6,23 @@
 ;(function(global) {
   'use strict';
 
-	var Nox = function() {
-		var args = Array.prototype.slice.call(arguments),
+  var methods = {},
+    Nox;
 
-			// first arg is the namespace
-			ns_string = args.shift(),
 
-			// last arg is the callback
-			callback = args.pop(),
+  Nox = function() {
+
+    var args = Array.prototype.slice.call(arguments),
+
+      // first arg is the namespace
+      ns_string = args.shift(),
+
+      // last arg is the callback
+      Callback = args.pop(),
 
       // defines a dependencie object, where all
       // dependencies are stored to pass in the function
-			dependencies = {},
+      dependencies = {},
 
       // all modules from the args will be stored in here
       modules = [],
@@ -36,53 +41,54 @@
     }
 
 
-		// '*' is passed, gets all modules
+    // '*' is passed, gets all modules
     if(modules && modules[0] === '*') {
       modules = [];
-			for(i in Nox.modules) {
-				modules.push(i);
-			}
-		}
+      for(i in Nox.modules) {
+        modules.push(i);
+      }
+    }
 
-		// starts all the modules
-		for(i = 0; i < modules.length; i += 1) {
-			Nox.modules[modules[i]](dependencies);
-		}
+    // starts all the modules
+    for(i = 0; i < modules.length; i += 1) {
+      Nox.modules[modules[i]](dependencies);
+    }
 
-		// adds the callback to the namespace
-		fn = namespace(ns_string, {
-      callback: callback,
-      dependencies: dependencies
-    });
+    // adds the Callback to the namespace
+    fn = methods.namespace(ns_string);
+    fn = fn.parent[fn.index] = new Callback(dependencies);
 
     // if it has initialize, then runs it
     // uses return so it can pass on jshint
     return fn.initialize && fn.initialize();
-	};
+  };
 
-	var namespace = function(ns_string, conf) {
-		var parts = ns_string.split('.'),
-			parent = global,
+  methods.namespace = function(ns_string) {
+    var parts = ns_string.split('.'),
+      parent = global,
       length = parts.length,
-			i;
+      i;
 
-		for(i = 0; i < length; i += 1) {
+    for(i = 0; i < length; i += 1) {
       if(i + 1 === length) {
-        parent[parts[i]] = new conf.callback(conf.dependencies);
-        return parent[parts[i]];
+        return {
+          parent: parent,
+          index: parts[i]
+        };
       }
 
       if(typeof parent[parts[i]] === 'undefined') {
-				parent[parts[i]] = {};
-			}
+        parent[parts[i]] = {};
+      }
 
-			parent = parent[parts[i]];
-		}
-	};
+      parent = parent[parts[i]];
+    }
+  };
 
-	global.Nox = Nox;
-
+  // Adds Nox to the global namespace
+  global.Nox = Nox;
 } (this));
+
 // modules
 (function(global, Nox) {
   'use strict';

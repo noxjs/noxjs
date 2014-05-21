@@ -3,7 +3,9 @@ module.exports = function(grunt) {
 
   var tasks = [
     'grunt-contrib-jshint',
-    'grunt-contrib-concat'
+    'grunt-contrib-concat',
+    'grunt-contrib-jasmine',
+    'grunt-contrib-watch'
   ];
 
   var config = {};
@@ -25,7 +27,7 @@ module.exports = function(grunt) {
 
   // =============================================
   // concat
-  config.concat = {}
+  config.concat = {};
   config.concat.options = {
     banner: '<%= banner.full %>'
   }
@@ -35,11 +37,33 @@ module.exports = function(grunt) {
   }
 
   // =============================================
+  // jasmine
+  config.jasmine = {};
+  config.jasmine.pivotal = {
+    src: ['src/nox/nox.js', 'src/modules/*.js'],
+    options: {
+      specs: 'tests/**/*Spec.js'
+    }
+  }
+
+  // =============================================
+  // watch
+  config.watch = {};
+  config.watch.scripts = {
+    files: ['src/**/*.js'],
+    tasks: ['jshint', 'concat'],
+    options: {
+      spawn: false,
+    }
+  }
+
+
+  // =============================================
   // config
   grunt.initConfig(config);
 
   // Load all tasks
-  tasks.forEach(grunt.loadNpmTasks)
+  tasks.forEach(grunt.loadNpmTasks);
 
   // Default task(s).
   grunt.registerTask('default', ['jshint', 'concat']);

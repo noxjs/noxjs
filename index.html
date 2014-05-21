@@ -6,10 +6,10 @@
 </head>
 <body>
 
-	<script src="nox.js"></script>
+	<script src="dist/nox.js"></script>
 
 	<script>
-		Nox('App.View.home', '*', function(box) {
+		Nox('App.View.home', 'dom', 'ajax', function(box) {
       this.initialize = function() {
         console.log(box);
       };
