@@ -32,7 +32,7 @@ module.exports = function(grunt) {
     banner: '<%= banner.full %>'
   }
   config.concat.dist = {
-    src: ['src/nox/nox.js', 'src/modules/*.js'],
+    src: ['src/nox/nox.js', 'src/methods/*.js', 'src/modules/*.js'],
     dest: 'dist/nox.js'
   }
 

@@ -1,11 +1,7 @@
 ;(function(global) {
   'use strict';
 
-  var methods = {},
-    Nox;
-
-
-  Nox = function() {
+  var Nox = function() {
 
     var args = Array.prototype.slice.call(arguments),
 
@@ -50,34 +46,12 @@
     }
 
     // adds the Callback to the namespace
-    fn = methods.namespace(ns_string);
+    fn = Nox.methods.namespace(ns_string);
     fn = fn.parent[fn.index] = new Callback(dependencies);
 
     // if it has initialize, then runs it
     // uses return so it can pass on jshint
     return fn.initialize && fn.initialize();
-  };
-
-  methods.namespace = function(ns_string) {
-    var parts = ns_string.split('.'),
-      parent = global,
-      length = parts.length,
-      i;
-
-    for(i = 0; i < length; i += 1) {
-      if(i + 1 === length) {
-        return {
-          parent: parent,
-          index: parts[i]
-        };
-      }
-
-      if(typeof parent[parts[i]] === 'undefined') {
-        parent[parts[i]] = {};
-      }
-
-      parent = parent[parts[i]];
-    }
   };
 
   // Adds Nox to the global namespace

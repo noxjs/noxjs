@@ -6,11 +6,7 @@
 ;(function(global) {
   'use strict';
 
-  var methods = {},
-    Nox;
-
-
-  Nox = function() {
+  var Nox = function() {
 
     var args = Array.prototype.slice.call(arguments),
 
@@ -55,7 +51,7 @@
     }
 
     // adds the Callback to the namespace
-    fn = methods.namespace(ns_string);
+    fn = Nox.methods.namespace(ns_string);
     fn = fn.parent[fn.index] = new Callback(dependencies);
 
     // if it has initialize, then runs it
@@ -63,7 +59,13 @@
     return fn.initialize && fn.initialize();
   };
 
-  methods.namespace = function(ns_string) {
+  // Adds Nox to the global namespace
+  global.Nox = Nox;
+} (this));
+
+(function(global, Nox) {
+  Nox.methods = Nox.methods || {};
+  Nox.methods.namespace = function(ns_string) {
     var parts = ns_string.split('.'),
       parent = global,
       length = parts.length,
@@ -84,10 +86,7 @@
       parent = parent[parts[i]];
     }
   };
-
-  // Adds Nox to the global namespace
-  global.Nox = Nox;
-} (this));
+} (this, this.Nox));
 
 // modules
 (function(global, Nox) {
