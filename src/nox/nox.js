@@ -1,22 +1,26 @@
+/**
+* @module Nox
+*/
+
 ;(function(global) {
   'use strict';
 
   var Nox = function() {
-
-    var args = Array.prototype.slice.call(arguments),
+    var args = Nox.methods.toArray(arguments),
 
       // first arg is the namespace
-      ns_string = args.shift(),
+      ns_string = Nox.methods.getNamespace(args),
 
-      // last arg is the callback
-      Callback = args.pop(),
+      // last arg is the callback, capital letters because it
+      // will be invoked as a class with "new"
+      Callback = Nox.methods.getCallback(args),
 
-      // defines a dependencie object, where all
-      // dependencies are stored to pass in the function
+      // defines a dependencies object, where all
+      // dependencies are stored to pass in the callback
       dependencies = {},
 
       // all modules from the args will be stored in here
-      modules = [],
+      modules,
 
       // the function after aliased and with modules
       fn,
@@ -25,20 +29,7 @@
       i;
 
     // gets all modules beeing passed as different args, or as an Array
-    if(args[0] && typeof args[0] === 'string') {
-      modules = args;
-    } else if(args[0] && typeof args[0] === 'object') {
-      modules = args[0];
-    }
-
-
-    // '*' is passed, gets all modules
-    if(modules && modules[0] === '*') {
-      modules = [];
-      for(i in Nox.modules) {
-        modules.push(i);
-      }
-    }
+    modules = Nox.methods.getModules(args);
 
     // starts all the modules
     for(i = 0; i < modules.length; i += 1) {

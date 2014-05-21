@@ -9,12 +9,10 @@
 	<script src="dist/nox.js"></script>
 
 	<script>
-		Nox('App.View.home', 'dom', 'ajax', function(box) {
+		Nox('App.View.home', '*', function(box) {
       this.initialize = function() {
         console.log(box);
       };
-
-      console.log('teste');
 		});
 	</script>
 </body>

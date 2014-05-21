@@ -1,5 +1,17 @@
+/**
+* Creates an structure of objects in the global
+* namespace
+*
+* @method namespace
+* @param {String} ns_string The string which will be
+* converted into objects, must be separated with dots
+* @return {Object} Returns the last but one index, and
+* the name of the last index
+*/
 (function(global, Nox) {
+  'use strict';
   Nox.methods = Nox.methods || {};
+
   Nox.methods.namespace = function(ns_string) {
     var parts = ns_string.split('.'),
       parent = global,
