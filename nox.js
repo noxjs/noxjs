@@ -5,7 +5,7 @@
 * Inspired by the Sandbox pattern
 */
 
-(function(global) {
+;(function(global) {
   'use strict';
 
 	var Nox = function() {
@@ -22,7 +22,10 @@
 			dependencies = {},
 
       // all modules from the args will be stored in here
-      modules;
+      modules,
+
+      // the function after aliased and with modules
+      fn;
 
     // gets all modules beeing passed as different args, or as an Array
     if(args[0] && typeof args[0] === 'string') {
@@ -34,8 +37,7 @@
     }
 
 
-		// if no module is passed, or '*' is passed
-    // gets all modules
+		// '*' is passed, gets all modules
     if(modules && modules[0] === '*') {
       modules = [];
 			for(var i in Nox.modules) {
@@ -49,10 +51,13 @@
 		}
 
 		// adds the callback to the namespace
-		namespace(ns_string, {
+		fn = namespace(ns_string, {
       callback: callback,
       dependencies: dependencies
     });
+
+    // if it has initialize, then runs it
+    fn.initialize && fn.initialize();
 	};
 
 	var namespace = function(ns_string, conf) {
@@ -64,7 +69,9 @@
 		for(i = 0; i < length; i += 1) {
       if(i + 1 === length) {
         return parent[parts[i]] = new conf.callback(conf.dependencies);
-      } else if(typeof parent[parts[i]] === 'undefined') {
+      }
+
+      if(typeof parent[parts[i]] === 'undefined') {
 				parent[parts[i]] = {};
 			}
 
