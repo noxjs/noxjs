@@ -25,7 +25,10 @@
       modules,
 
       // the function after aliased and with modules
-      fn;
+      fn,
+
+      // used in loopings
+      i;
 
     // gets all modules beeing passed as different args, or as an Array
     if(args[0] && typeof args[0] === 'string') {
@@ -40,13 +43,13 @@
 		// '*' is passed, gets all modules
     if(modules && modules[0] === '*') {
       modules = [];
-			for(var i in Nox.modules) {
+			for(i in Nox.modules) {
 				modules.push(i);
 			}
 		}
 
 		// starts all the modules
-		for(var i = 0; i < modules.length; i += 1) {
+		for(i = 0; i < modules.length; i += 1) {
 			Nox.modules[modules[i]](dependencies);
 		}
 
@@ -57,7 +60,7 @@
     });
 
     // if it has initialize, then runs it
-    fn.initialize && fn.initialize();
+    return fn.initialize && fn.initialize();
 	};
 
 	var namespace = function(ns_string, conf) {
@@ -68,7 +71,8 @@
 
 		for(i = 0; i < length; i += 1) {
       if(i + 1 === length) {
-        return parent[parts[i]] = new conf.callback(conf.dependencies);
+        parent[parts[i]] = new conf.callback(conf.dependencies);
+        return parent[parts[i]];
       }
 
       if(typeof parent[parts[i]] === 'undefined') {
