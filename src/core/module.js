@@ -1,7 +1,7 @@
 (function(Nox) {
 	'use strict';
 
-	Nox.createModule = function() {
+	Nox.module = function() {
 
 	};
 } (this.Nox));
