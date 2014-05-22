@@ -25,14 +25,28 @@ You can create some objects like this:
 ``` js
 Nox('App.Home.view', function() {
   // awesome stuff
-});
+}); // creates App.Home.View
 
 Nox('App.Login.view', function() {
   // awesome stuff
-});
+}); // creates App.Login.View
 ```
 
 It dinamically generated the namespaces for you! You don't have to verify if the object was previously created (that's annoying, i know...), and it doesn't matter how deep is your object, it won't overwrite neither delete nothing you made previously.
+
+### Initializer
+
+If you attach an initializer method to your object, it will be instantly called after you create your object
+
+``` js
+Nox('App.Home.view', function() {
+  this.initialize = function() {
+    console.log('yeah');
+  }
+}); 
+// yeah 
+
+```
 
 ### Modules
 
