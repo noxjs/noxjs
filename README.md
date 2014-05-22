@@ -34,9 +34,9 @@ Nox('App.Login.view', function() {
 
 It dinamically generated the namespaces for you! You don't have to verify if the object was previously created (that's annoying, i know...), and it doesn't matter how deep is your object, it won't overwrite neither delete nothing you made previously.
 
-### Initializer
+### Initialize
 
-If you attach an initializer method to your object, it will be instantly called after you create your object
+If you attach an initialize method to your object, it will be instantly called after you create your object
 
 ``` js
 Nox('App.Home.view', function() {
