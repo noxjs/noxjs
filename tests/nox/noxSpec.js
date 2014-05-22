@@ -1,9 +1,3 @@
-describe('', function () {
-  it("converts inches to centimeters", function () {
-    expect(1).toEqual(1);
-  });
+// describe('Testing Nox', function () {
 
-  it("converts centimeters to yards", function () {
-    expect(2).toEqual(3);
-  });
-});
+// });

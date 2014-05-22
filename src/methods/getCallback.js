@@ -10,6 +10,12 @@
   Nox.methods = Nox.methods || {};
 
   Nox.methods.getCallback = function(arr) {
-    return arr.pop();
+    var callback =  arr.pop();
+
+    if(typeof callback != 'function') {
+      throw new Error('Last parameter should be a function');
+    }
+
+    return callback;
   };
 } (this, this.Nox));

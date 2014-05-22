@@ -40,7 +40,7 @@ module.exports = function(grunt) {
   // jasmine
   config.jasmine = {};
   config.jasmine.pivotal = {
-    src: ['src/nox/nox.js', 'src/modules/*.js'],
+    src: ['src/nox/nox.js', 'src/methods/*.js', 'src/modules/*.js'],
     options: {
       specs: 'tests/**/*Spec.js'
     }
