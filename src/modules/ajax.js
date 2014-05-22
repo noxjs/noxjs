@@ -21,3 +21,5 @@
 		};
 	};
 } (this, this.Nox));
+
+// Nox.createModule

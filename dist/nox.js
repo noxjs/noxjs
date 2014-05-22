@@ -54,8 +54,10 @@
   global.Nox = Nox;
 } (this));
 
-(function() {
+(function(Nox) {
 	'use strict';
+
+
 } (this.Nox));
 
 /**

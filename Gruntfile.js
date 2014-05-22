@@ -34,7 +34,7 @@ module.exports = function(grunt) {
   config.concat.dist = {
     src: [
       'src/core/nox.js',
-      'src/core/addModule.js',
+      'src/core/module.js',
       'src/methods/*.js',
       'src/modules/*.js'
     ],
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
   config.jasmine.pivotal = {
     src: [
       'src/core/nox.js',
-      'src/core/addModule.js',
+      'src/core/module.js',
       'src/methods/*.js',
       'src/modules/*.js'
     ],
