@@ -1,16 +1,18 @@
 /**
 * A optional Helper for handling with the DOM
 *
-* @module ajax
+* @module DOM
 */
 
-(function(global, Nox) {
-  'use strict';
+Nox.module('dom', function(box) {
+	box.dom = {};
 
-	Nox.modules = Nox.modules || {};
-	Nox.modules.dom = function(box) {
-		box.dom = {
-			getElement: function() {}
-		};
+	/**
+	* A foo method
+	*
+	* @method foo
+	*/
+	box.dom.foo = function() {
+
 	};
-} (this, this.Nox));
+});

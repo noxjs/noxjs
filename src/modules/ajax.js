@@ -4,22 +4,15 @@
 * @module ajax
 */
 
-(function(global, Nox) {
-  'use strict';
-	Nox.modules = Nox.modules || {};
+Nox.module('ajax', function(box) {
+	box.ajax = {};
 
-	Nox.modules.ajax = function(box) {
-		box.ajax = {};
+	/**
+	* A request method
+	*
+	* @method request
+	*/
+	box.ajax.request = function() {
 
-		/**
-		* A request method
-		*
-		* @method request
-		*/
-		box.ajax.request = function() {
-
-		};
 	};
-} (this, this.Nox));
-
-// Nox.createModule
+});

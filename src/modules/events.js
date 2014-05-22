@@ -4,13 +4,15 @@
 * @module ajax
 */
 
-(function(global, Nox) {
-  'use strict';
+Nox.module('events', function(box) {
+	box.events = {};
 
-	Nox.modules = Nox.modules || {};
-	Nox.modules.events = function(box) {
-		box.events = {
-			click: function() {}
-		};
+	/**
+	* A foo method
+	*
+	* @method foo
+	*/
+	box.events.foo = function() {
+
 	};
-} (this, this.Nox));
+});
