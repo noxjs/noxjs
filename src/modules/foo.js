@@ -5,14 +5,14 @@
 */
 
 Nox.module('foo', function(box) {
-	box.foo = {};
+  box.foo = {};
 
-	/**
-	* A request method
-	*
-	* @method request
-	*/
-	box.foo.sayHi = function() {
+  /**
+  * A request method
+  *
+  * @method request
+  */
+  box.foo.sayHi = function() {
 
-	};
+  };
 });

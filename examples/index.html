@@ -1,28 +1,28 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+  <meta charset="UTF-8">
+  <title>Document</title>
 </head>
 <body>
 
-	<script src="dist/nox.js"></script>
-	<script>
-		Nox.module('foo', function(box) {
-			box.foo = {};
+  <script src="dist/nox.js"></script>
+  <script>
+    Nox.module('foo', function(box) {
+      box.foo = {};
 
-			box.foo.sayHi = function() {
-				return 'Hi';
-			};
-		});
-	</script>
+      box.foo.sayHi = function() {
+        return 'Hi';
+      };
+    });
+  </script>
 
-	<script>
-		Nox('App.Home', 'foo', function(box) {
+  <script>
+    Nox('App.Home', 'foo', function(box) {
       this.initialize = function() {
         console.log(box.foo.sayHi());
       };
     });
-	</script>
+  </script>
 </body>
 </html>

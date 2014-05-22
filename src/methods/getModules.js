@@ -11,7 +11,7 @@
   Nox.methods = Nox.methods || {};
 
   Nox.methods.getModules = function(mods) {
-  	var modules = [],
+    var modules = [],
       i;
 
     if(mods[0] && typeof mods[0] === 'string') {

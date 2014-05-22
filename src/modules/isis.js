@@ -5,14 +5,14 @@
 */
 
 Nox.module('isis', function(box) {
-	box.isis = {};
+  box.isis = {};
 
-	/**
-	* A request method
-	*
-	* @method request
-	*/
-	box.isis.sayHi = function() {
+  /**
+  * A request method
+  *
+  * @method request
+  */
+  box.isis.sayHi = function() {
 
-	};
+  };
 });
