@@ -11,7 +11,7 @@
   },
   "main": "nox.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt jasmine"
   },
   "bugs": {
     "url": "https://github.com/msodeveloper/nox.js/issues"
