@@ -54,12 +54,6 @@
   global.Nox = Nox;
 } (this));
 
-(function(Nox) {
-	'use strict';
-
-
-} (this.Nox));
-
 /**
 * Returns the last index of the array, which is the callback
 *
@@ -235,6 +229,7 @@
 	};
 } (this, this.Nox));
 
+// Nox.createModule
 /**
 * A optional Helper for handling with the DOM
 *

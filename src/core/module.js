@@ -3,5 +3,5 @@
 
 	Nox.createModule = function() {
 
-	}
+	};
 } (this.Nox));
