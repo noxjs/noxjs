@@ -51,6 +51,7 @@
   };
 
   // Adds Nox to the global namespace
+  Nox.modules = {};
   global.Nox = Nox;
 } (this));
 
@@ -211,63 +212,4 @@
   Nox.methods.toArray = function(obj) {
     return Array.prototype.slice.call(obj);
   };
-} (this, this.Nox));
-
-/**
-* A optional Helper for handling Ajax requests
-*
-* @module ajax
-*/
-
-(function(global, Nox) {
-  'use strict';
-	Nox.modules = Nox.modules || {};
-
-	Nox.modules.ajax = function(box) {
-		box.ajax = {};
-
-		/**
-		* A request method
-		*
-		* @method request
-		*/
-		box.ajax.request = function() {
-
-		};
-	};
-} (this, this.Nox));
-
-// Nox.createModule
-/**
-* A optional Helper for handling with the DOM
-*
-* @module ajax
-*/
-
-(function(global, Nox) {
-  'use strict';
-
-	Nox.modules = Nox.modules || {};
-	Nox.modules.dom = function(box) {
-		box.dom = {
-			getElement: function() {}
-		};
-	};
-} (this, this.Nox));
-
-/**
-* A optional Helper for handling Events
-*
-* @module ajax
-*/
-
-(function(global, Nox) {
-  'use strict';
-
-	Nox.modules = Nox.modules || {};
-	Nox.modules.events = function(box) {
-		box.events = {
-			click: function() {}
-		};
-	};
 } (this, this.Nox));

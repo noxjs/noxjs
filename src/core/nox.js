@@ -46,5 +46,6 @@
   };
 
   // Adds Nox to the global namespace
+  Nox.modules = {};
   global.Nox = Nox;
 } (this));

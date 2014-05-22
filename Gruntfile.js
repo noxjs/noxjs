@@ -35,8 +35,7 @@ module.exports = function(grunt) {
     src: [
       'src/core/nox.js',
       'src/core/module.js',
-      'src/methods/*.js',
-      'src/modules/*.js'
+      'src/methods/*.js'
     ],
     dest: 'dist/nox.js'
   }
