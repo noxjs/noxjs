@@ -9,13 +9,7 @@
 	<script src="dist/nox.js"></script>
 
 	<script>
-		Nox('App.Home', '*', function(box) {
-      this.initialize = function() {
-        console.log(box);
-      };
-    });
-
-    Nox('App.Yeah', '*', function(box) {
+		Nox('App.Home', 'dom', function(box) {
       this.initialize = function() {
         console.log(box);
       };

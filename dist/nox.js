@@ -1,4 +1,4 @@
-/** nox.js - v0.0.0 - 2014-05-21
+/** nox.js - v0.0.0 - 2014-05-22
 * Copyright (c) 2014 Mauricio Soares de Oliveira;
 * Licensed MIT 
 */
@@ -89,7 +89,8 @@
   Nox.methods = Nox.methods || {};
 
   Nox.methods.getModules = function(mods) {
-  	var modules = [];
+  	var modules = [],
+      i;
 
     if(mods[0] && typeof mods[0] === 'string') {
       modules = mods;
@@ -100,8 +101,15 @@
     // '*' is passed, gets all modules
     if(modules && modules[0] === '*') {
       modules = [];
-      for(var i in Nox.modules) {
+      for(i in Nox.modules) {
         modules.push(i);
+      }
+    }
+
+    // checks if the module exists
+    for(i = 0; i < modules.length; i += 1) {
+      if(!Nox.modules[modules[i]]) {
+        throw new Error('This module doesn\'t exists');
       }
     }
 
