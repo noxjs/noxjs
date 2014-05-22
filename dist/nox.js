@@ -123,12 +123,20 @@
   Nox.methods.getNamespace = function(arr) {
     var namespace = arr.shift();
 
-    // checks if the string is only a number, or if it starts with a number
-    if(!isNaN(namespace) || !isNaN(namespace.substring(0, 1))) {
-      throw new Error('First parameter can\'t be a number or start with a number');
+    if(typeof namespace !== 'string') {
+      throw new Error('First must be a string');
     }
 
-    return namespace;
+    namespace = namespace.split('.');
+
+    // checks if the string is only a number, or if it starts with a number
+    for(var i = 0; i < namespace.length; i += 1) {
+      if(!isNaN(namespace[i]) || !isNaN(namespace[i].substring(0, 1))) {
+        throw new Error('Any of variables separated by dots can be a number or start with a number');
+      }
+    }
+
+    return namespace.join('.');
   };
 } (this, this.Nox));
 
@@ -147,6 +155,10 @@
   Nox.methods = Nox.methods || {};
 
   Nox.methods.namespace = function(ns_string) {
+    if(!ns_string || typeof ns_string !== 'string') {
+      throw new Error('You need to pass a string');
+    }
+
     var parts = ns_string.split('.'),
       parent = global,
       length = parts.length,

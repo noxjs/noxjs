@@ -13,6 +13,10 @@
   Nox.methods = Nox.methods || {};
 
   Nox.methods.namespace = function(ns_string) {
+    if(!ns_string || typeof ns_string !== 'string') {
+      throw new Error('You need to pass a string');
+    }
+
     var parts = ns_string.split('.'),
       parent = global,
       length = parts.length,

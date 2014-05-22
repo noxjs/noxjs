@@ -10,20 +10,38 @@ describe('Testing getNamespace method', function() {
     args = [1, 2, 3, 4];
     expect(function() {
       Nox.methods.getNamespace(args);
-    }).toThrow(new Error('First parameter can\'t be a number or start with a number'));
+    }).toThrow(new Error('First must be a string'));
   });
 
-  it('Should throw an error if the first parameter is a string, but still a number', function() {
-    args = ['1', 2, 3, 4];
-    expect(function() {
-      Nox.methods.getNamespace(args);
-    }).toThrow(new Error('First parameter can\'t be a number or start with a number'));
+  describe('Testing variables with only number, beeing string', function() {
+    it('Should throw an error if first separated by dot is number', function() {
+      args = ['1.App.Home', 2, 3, 4];
+      expect(function() {
+        Nox.methods.getNamespace(args);
+      }).toThrow(new Error('Any of variables separated by dots can be a number or start with a number'));
+    });
+
+    it('Should throw an error if second separated by dot is number', function() {
+      args = ['App.1.Home', 2, 3, 4];
+      expect(function() {
+        Nox.methods.getNamespace(args);
+      }).toThrow(new Error('Any of variables separated by dots can be a number or start with a number'));
+    });
   });
 
-  it('Should throw an error if the first parameter is a string, but still starts with a number', function() {
-    args = ['1yeah', 2, 3, 4];
-    expect(function() {
-      Nox.methods.getNamespace(args);
-    }).toThrow(new Error('First parameter can\'t be a number or start with a number'));
+  describe('Testing variables that begins with numbers', function() {
+    it('Should throw an error if first separated by dot starts with a number', function() {
+      args = ['1App.Home', 2, 3, 4];
+      expect(function() {
+        Nox.methods.getNamespace(args);
+      }).toThrow(new Error('Any of variables separated by dots can be a number or start with a number'));
+    });
+
+    it('Should throw an error if second separated by dot starts with a number', function() {
+      args = ['App.1Home', 2, 3, 4];
+      expect(function() {
+        Nox.methods.getNamespace(args);
+      }).toThrow(new Error('Any of variables separated by dots can be a number or start with a number'));
+    });
   });
 });
