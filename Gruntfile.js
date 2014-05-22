@@ -69,6 +69,29 @@ module.exports = function(grunt) {
     }
   }
 
+  // =============================================
+  // uglify
+  config.uglify = {};
+  config.uglify.all = {
+    files: {
+      'dist/nox.min.js': [ 'dist/nox.js' ]
+    },
+    options: {
+      preserveComments: false,
+      sourceMap: 'dist/nox.min.map',
+      sourceMappingURL: 'nox.min.map',
+      report: 'min',
+      beautify: {
+        ascii_only: true
+      },
+      banner: '<%= banner.full %>',
+      compress: {
+        hoist_funs: false,
+        loops: false,
+        unused: false
+      }
+    }
+  }
 
   // =============================================
   // config
@@ -80,6 +103,6 @@ module.exports = function(grunt) {
   // Tasks
   grunt.registerTask('dev', ['jshint', 'jasmine', 'concat:dev']);
 
-  grunt.registerTask('default', ['dev']);
+  grunt.registerTask('default', ['dev', 'uglify']);
 
 };
