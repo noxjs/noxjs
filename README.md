@@ -43,8 +43,8 @@ Nox('App.Home.view', function() {
   this.initialize = function() {
     console.log('yeah');
   }
-}); 
-// yeah 
+});
+// yeah
 
 ```
 
@@ -91,6 +91,7 @@ And don't forget that you have to include your new module AFTER Nox.js was inclu
 
 ### Todos
 
-Create the modules (There is none ready), but you can still use Nox.js for structuring your app
+Create the modules (There is none ready), but you can still use Nox.js for structuring your app.
+An easier way to create new modules
 
 I'm still working on this README file, :)

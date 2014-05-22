@@ -54,6 +54,10 @@
   global.Nox = Nox;
 } (this));
 
+(function() {
+	'use strict';
+} (this.Nox));
+
 /**
 * Returns the last index of the array, which is the callback
 *
