@@ -1,6 +1,6 @@
 /** nox.js - v0.0.0 - 2014-05-22
 * Copyright (c) 2014 Mauricio Soares de Oliveira;
-* Licensed MIT 
+* Licensed MIT
 */
 
 /**
@@ -46,8 +46,11 @@
     fn = fn.parent[fn.index] = new Callback(dependencies);
 
     // if it has initialize, then runs it
-    // uses return so it can pass on jshint
-    return fn.initialize && fn.initialize();
+    if(fn.initialize) {
+      fn.initialize();
+    }
+
+    return fn;
   };
 
   // Adds Nox to the global namespace
