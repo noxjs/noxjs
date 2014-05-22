@@ -1,6 +1,6 @@
 /** nox.js - v0.0.0 - 2014-05-22
 * Copyright (c) 2014 Mauricio Soares de Oliveira;
-* Licensed MIT
+* Licensed MIT 
 */
 
 /**
@@ -46,11 +46,8 @@
     fn = fn.parent[fn.index] = new Callback(dependencies);
 
     // if it has initialize, then runs it
-    if(fn.initialize) {
-      fn.initialize();
-    }
-
-    return fn;
+    // uses return so it can pass on jshint
+    return fn.initialize && fn.initialize();
   };
 
   // Adds Nox to the global namespace
@@ -232,7 +229,12 @@
 	};
 } (this, this.Nox));
 
-// modules
+/**
+* A optional Helper for handling with the DOM
+*
+* @module ajax
+*/
+
 (function(global, Nox) {
   'use strict';
 
@@ -243,7 +245,12 @@
 		};
 	};
 } (this, this.Nox));
-// modules
+/**
+* A optional Helper for handling Events
+*
+* @module ajax
+*/
+
 (function(global, Nox) {
   'use strict';
 

@@ -1,4 +1,9 @@
-// modules
+/**
+* A optional Helper for handling with the DOM
+*
+* @module ajax
+*/
+
 (function(global, Nox) {
   'use strict';
 

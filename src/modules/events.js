@@ -1,4 +1,9 @@
-// modules
+/**
+* A optional Helper for handling Events
+*
+* @module ajax
+*/
+
 (function(global, Nox) {
   'use strict';
 
