@@ -245,6 +245,7 @@
 		};
 	};
 } (this, this.Nox));
+
 /**
 * A optional Helper for handling Events
 *
