@@ -48,7 +48,7 @@ module.exports = function(grunt) {
       'src/core/nox.js',
       'src/core/module.js',
       'src/methods/*.js',
-      'src/modules/*.js'
+      'examples/modules/*.js'
     ],
     options: {
       specs: 'tests/**/*Spec.js'
