@@ -53,16 +53,22 @@ Nox('App.Home.view', function() {
 Well, you can use dependency injection for managing your modules, like this:
 
 ``` js
-Nox('App.Home.view', 'dom', function() {
+Nox('App.Home.view', 'dom', function(box) {
   // awesome stuff
+  box.dom.someAction();
 });
 
-Nox('App.Video.view', ['dom', 'ajax'], function() {
+Nox('App.Video.view', ['dom', 'ajax'], function(box) {
   // awesome stuff
+  box.dom.someAction();
+  box.ajax.someAction();
 });
 
-Nox('App.Login.view', '*', function() {
+Nox('App.Login.view', '*', function(box) {
   // awesome stuff
+  box.dom.someAction();
+  box.ajax.someAction();
+  box.someOtherThing.someAction();
 });
 ```
 
