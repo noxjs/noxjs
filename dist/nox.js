@@ -68,7 +68,7 @@
   Nox.methods.getCallback = function(arr) {
     var callback =  arr.pop();
 
-    if(typeof callback != 'function') {
+    if(typeof callback !== 'function') {
       throw new Error('Last parameter should be a function');
     }
 
@@ -121,7 +121,14 @@
   Nox.methods = Nox.methods || {};
 
   Nox.methods.getNamespace = function(arr) {
-    return arr.shift();
+    var namespace = arr.shift();
+
+    // checks if the string is only a number, or if it starts with a number
+    if(!isNaN(namespace) || !isNaN(namespace.substring(0, 1))) {
+      throw new Error('First parameter can\'t be a number or start with a number');
+    }
+
+    return namespace;
   };
 } (this, this.Nox));
 

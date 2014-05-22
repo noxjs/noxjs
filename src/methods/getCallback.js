@@ -12,7 +12,7 @@
   Nox.methods.getCallback = function(arr) {
     var callback =  arr.pop();
 
-    if(typeof callback != 'function') {
+    if(typeof callback !== 'function') {
       throw new Error('Last parameter should be a function');
     }
 

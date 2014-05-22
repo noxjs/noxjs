@@ -17,7 +17,7 @@ describe('Testing getCallback method', function() {
     expect(typeof callback).toEqual('function');
   });
 
-  it('should return an error if the last argument is not a function', function() {
+  it('should throw an error if the last argument is not a function', function() {
     args = [1, 2, 3, 4];
 
     expect(function() {
