@@ -75,23 +75,21 @@ A module is a seperate part of the framework, so if your project is small and yo
 You can easily create your own module, just follow the structure above:
 
 ```js
-(function(global, Nox) {
-  'use strict';
+Nox.module('myCoolModule', function(box) {
+  box.myCoolModule = {};
 
-    Nox.modules = Nox.modules || {};
-    Nox.modules.YOUR_MODULE = function(box) {
-      box.YOUR_MODULE = {
-        YOUR_METHOD: function() {}
-      };
-    };
-} (this, this.Nox));
+  box.myCoolModule.request = function() {
+
+  };
+});
 ```
 
-And don't forget that you have to include your new module AFTER Nox.js was included
+If you try to create 2 modules with the same name, it will throw an Error.
+
+Ah, don't forget that you have to include your new module AFTER Nox.js was included.
 
 ### Todos
 
 Create the modules (There is none ready), but you can still use Nox.js for structuring your app.
-An easier way to create new modules
 
 I'm still working on this README file, :)
