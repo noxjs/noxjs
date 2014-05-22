@@ -5,7 +5,8 @@ module.exports = function(grunt) {
     'grunt-contrib-jshint',
     'grunt-contrib-concat',
     'grunt-contrib-jasmine',
-    'grunt-contrib-watch'
+    'grunt-contrib-watch',
+    'grunt-contrib-uglify'
   ];
 
   var config = {};
@@ -28,16 +29,18 @@ module.exports = function(grunt) {
   // =============================================
   // concat
   config.concat = {};
-  config.concat.options = {
-    banner: '<%= banner.full %>'
-  }
-  config.concat.dist = {
-    src: [
-      'src/core/nox.js',
-      'src/core/module.js',
-      'src/methods/*.js'
-    ],
-    dest: 'dist/nox.js'
+  config.concat.dev = {
+    options: {
+      banner: '<%= banner.full %>'
+    },
+    dist: {
+      src: [
+        'src/core/nox.js',
+        'src/core/module.js',
+        'src/methods/*.js'
+      ],
+      dest: 'dist/nox.js'
+    }
   }
 
   // =============================================
@@ -74,7 +77,9 @@ module.exports = function(grunt) {
   // Load all tasks
   tasks.forEach(grunt.loadNpmTasks);
 
-  // Default task(s).
-  grunt.registerTask('default', ['jshint', 'concat']);
+  // Tasks
+  grunt.registerTask('dev', ['jshint', 'jasmine', 'concat:dev']);
+
+  grunt.registerTask('default', ['dev']);
 
 };
