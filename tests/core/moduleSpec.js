@@ -10,8 +10,6 @@ describe('Testing module core', function() {
 	});
 
 	it('Should throw an error if you try to create 2 modules with the same name', function() {
-
-
 		expect(function() {
 			Nox.module('foo', function() {});
 			Nox.module('foo', function() {});
