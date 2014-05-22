@@ -7,12 +7,20 @@
 <body>
 
 	<script src="dist/nox.js"></script>
-	<script src="src/modules/foo.js"></script>
+	<script>
+		Nox.module('foo', function(box) {
+			box.foo = {};
+
+			box.foo.sayHi = function() {
+				return 'Hi';
+			};
+		});
+	</script>
 
 	<script>
 		Nox('App.Home', 'foo', function(box) {
       this.initialize = function() {
-        console.log(box);
+        console.log(box.foo.sayHi());
       };
     });
 	</script>
