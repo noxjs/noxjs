@@ -110,6 +110,8 @@ Ah, don't forget that you have to include your new module **after** Nox.js was i
 
 - Refactor a little bit the core code.
 
+- Implement a way to create constructors, not only objects
+
 - Improve this README.
 
 ## Maintainer
