@@ -1,6 +1,6 @@
-/** nox.js - v0.0.0 - 2014-05-22
+/** nox.js - v0.0.0 - 2014-05-23
 * Copyright (c) 2014 Mauricio Soares de Oliveira;
-* Licensed MIT
+* Licensed MIT 
 */
 
 /**
@@ -20,7 +20,7 @@
       // will be invoked as a class with "new"
       Callback = Nox.methods.getCallback(args),
 
-      // gets all modules beeing passed as different args, or as an Array
+      // all modules from the args will be stored in here
       modules = Nox.methods.getModules(args),
 
       // defines a dependencies object, where all
@@ -53,17 +53,17 @@
 } (this));
 
 (function(Nox) {
-	'use strict';
+  'use strict';
 
-	Nox.module = function(index, fn) {
-		Nox.modules = Nox.modules || {};
+  Nox.module = function(index, fn) {
+    Nox.modules = Nox.modules || {};
 
-		if(Nox.modules[index]) {
-			throw new Error('There is already a "' + index + '" module');
-		}
+    if(Nox.modules[index]) {
+      throw new Error('There is already a "' + index + '" module');
+    }
 
-		Nox.modules[index] = fn;
-	};
+    Nox.modules[index] = fn;
+  };
 } (this.Nox));
 
 /**
@@ -101,7 +101,7 @@
   Nox.methods = Nox.methods || {};
 
   Nox.methods.getModules = function(mods) {
-  	var modules = [],
+    var modules = [],
       i;
 
     if(mods[0] && typeof mods[0] === 'string') {

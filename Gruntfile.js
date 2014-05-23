@@ -28,8 +28,7 @@ module.exports = function(grunt) {
 
   // =============================================
   // concat
-  config.concat = {};
-  config.concat.dev = {
+  config.concat = {
     options: {
       banner: '<%= banner.full %>'
     },
@@ -63,7 +62,7 @@ module.exports = function(grunt) {
   config.watch = {};
   config.watch.scripts = {
     files: ['src/**/*.js'],
-    tasks: ['jshint', 'concat'],
+    tasks: ['dev'],
     options: {
       spawn: false,
     }
@@ -101,7 +100,7 @@ module.exports = function(grunt) {
   tasks.forEach(grunt.loadNpmTasks);
 
   // Tasks
-  grunt.registerTask('dev', ['jshint', 'jasmine', 'concat:dev']);
+  grunt.registerTask('dev', ['jshint', 'jasmine', 'concat']);
 
   grunt.registerTask('default', ['dev', 'uglify']);
 
