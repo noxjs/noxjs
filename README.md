@@ -1,38 +1,41 @@
 # Nox.js
 
-Nox.js is a lightweight framework which helps you to handle with structure, modules though dependency injection and namespaces easily.
+Nox.js helps you defining namespaces, injecting your dependencies (if any) and modularizing your application.
 
 It does't need jQuery or any third-party library, although you can use any with no problems.
 
-## Getting started
+## Usage
 
-After including the nox.js script on your file, you can start doing:
+Creating namespaces is easy:
 
 ``` js
-Nox('Module', function() {
-
+Nox('App', function() {
+  this.foo = function() {};
 });
 ```
 
-As simple as that... you just created a simple var called `Module`, which contains an empty `object`.
+As simple as that... you just created a simple var called `App`, which contains an `object` with a `foo` method.
 
 Let`s get further...
 
-### Namespaces
+### Deeper Namespaces
 
-You can create some objects like this:
+You can create some namespaces like this:
 
 ``` js
-Nox('App.Home.view', function() {
+Nox('App', function() {
   // awesome stuff
-}); // creates App.Home.View
+  this.foo = function() {};
+}); // creates App with foo method
 
-Nox('App.Login.view', function() {
+Nox('App.Home', function() {
   // awesome stuff
-}); // creates App.Login.View
+}); // creates App.Home
 ```
 
-It dinamically generated the namespaces for you! You don't have to verify if the object was previously created (that's annoying, i know...), and it doesn't matter how deep is your object, it won't overwrite neither delete nothing you made previously.
+It dinamically creates your namespaces, respecting the preivous ones methods.
+
+So you will have both `App.foo` and `App.Home`
 
 ### Initialize
 
@@ -44,7 +47,7 @@ Nox('App.Home.view', function() {
     console.log('yeah');
   }
 });
-// yeah
+// Log: yeah
 
 ```
 
@@ -72,30 +75,84 @@ Nox('App.Login.view', '*', function(box) {
 });
 ```
 
-It accepts an `Array` or `Multiple parameters` as dependencies... And the coolest part is: You don't have to include all modules in your project!
+It accepts an **Array** or **Multiple parameters** as dependencies... And the coolest part is: You don't have to include all modules in your project!
 
-A module is a seperate part of the framework, so if your project is small and you want to use only the `ajax` module, you can download the script of this module and include in your page...
+A module is a seperate part of **Nox**, so if your project is small and you want to use only the `ajax` module, you can download the script of this module and include in your page...
 
-#### Create your own module
+You don't even need any module to start with **Nox**
+
+### Create your own module
 
 You can easily create your own module, just follow the structure above:
 
 ```js
 Nox.module('myCoolModule', function(box) {
-  box.myCoolModule = {};
-
-  box.myCoolModule.request = function() {
-
+  box.myCoolModule = {
+    myCoolMethod: function() {
+      return 'Nox :)';
+    }
   };
 });
+
+// usage
+Nox('App', 'myCoolModule', function(box) {
+  box.myCoolModule.myCoolMethod(); // Nox :)
+})
 ```
 
 If you try to create 2 modules with the same name, it will throw an Error.
 
 Ah, don't forget that you have to include your new module AFTER Nox.js was included.
 
-### Todos
+## Todos
 
-Create the modules (There is none ready), but you can still use Nox.js for structuring your app.
+Create the modules (There is none ready), but you can still use Nox.js for structuring your app, or create your own module.
+Refactor a little bit the core code.
+Improve this README.
 
-I'm still working on this README file, :)
+## Maintainer
+
+- Mauricio Soares - <http://github.com/msodeveloper>
+
+## Contributing
+
+1. [Fork](http://help.github.com/forking/) Nox.js
+2. Create a topic branch - `git checkout -b my_branch`
+3. Push to your branch - `git push origin my_branch`
+4. Send me a [Pull Request](https://help.github.com/articles/using-pull-requests)
+5. That's it!
+
+Please respect the indentation rules and code style.
+Use 2 spaces, not tabs.
+New features? Would you mind testing it? :)
+
+## Testing
+
+You need [NodeJS](http://nodejs.org/) installed on your machine
+
+1. Run `npm install`
+2. Run `npm install -g grunt-cli` to install the grunt command
+3. Run `npm test`
+
+## License
+
+(The MIT License)
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

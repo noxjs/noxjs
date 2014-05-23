@@ -32,4 +32,17 @@ describe('Testing Nox', function () {
 
     expect(foo.fn).toHaveBeenCalled();
   });
+
+  it('should not delete the previous created variable and methods', function() {
+    Nox('App', function() {
+      this.foo = function() {};
+    });
+
+    Nox('App.newFoo', function() {
+
+    });
+
+    expect(App.foo).not.toBeUndefined();
+    expect(App.newFoo).not.toBeUndefined();
+  });
 });
