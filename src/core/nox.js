@@ -15,21 +15,18 @@
       // will be invoked as a class with "new"
       Callback = Nox.methods.getCallback(args),
 
+      // all modules from the args will be stored in here
+      modules = Nox.methods.getModules(args),
+
       // defines a dependencies object, where all
       // dependencies are stored to pass in the callback
       dependencies = {},
-
-      // all modules from the args will be stored in here
-      modules,
 
       // the function after aliased and with modules
       fn,
 
       // used in loopings
       i;
-
-    // gets all modules beeing passed as different args, or as an Array
-    modules = Nox.methods.getModules(args);
 
     // starts all the modules
     for(i = 0; i < modules.length; i += 1) {
