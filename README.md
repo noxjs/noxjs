@@ -33,7 +33,7 @@ Nox('App.Home', function() {
 }); // creates App.Home
 ```
 
-It dinamically creates your namespaces, respecting the preivous ones methods.
+It dinamically creates your namespaces, respecting the previous ones already created.
 
 So you will have both `App.foo` and `App.Home`
 
