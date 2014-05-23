@@ -102,7 +102,7 @@ Nox('App', 'myCoolModule', function(box) {
 
 If you try to create 2 modules with the same name, it will throw an Error.
 
-Ah, don't forget that you have to include your new module AFTER Nox.js was included.
+Ah, don't forget that you have to include your new module **after** Nox.js was included.
 
 ## Todos
 
