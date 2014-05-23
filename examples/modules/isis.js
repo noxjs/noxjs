@@ -15,4 +15,8 @@ Nox.module('isis', function(box) {
   box.isis.sayHi = function() {
 
   };
+
+  box.isis.sayHello = function() {
+
+  };
 });

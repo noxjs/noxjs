@@ -62,7 +62,7 @@ module.exports = function(grunt) {
   config.watch = {};
   config.watch.scripts = {
     files: ['src/**/*.js'],
-    tasks: ['dev'],
+    tasks: ['jshint', 'concat'],
     options: {
       spawn: false,
     }

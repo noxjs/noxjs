@@ -15,4 +15,8 @@ Nox.module('foo', function(box) {
   box.foo.sayHi = function() {
 
   };
+
+  box.foo.sayHello = function() {
+
+  };
 });
