@@ -125,7 +125,9 @@ Ah, don't forget that you have to include your new module **after** Nox.js was i
 5. That's it!
 
 Please respect the indentation rules and code style.
+
 Use 2 spaces, not tabs.
+
 New features? Would you mind testing it? :)
 
 ## Testing
