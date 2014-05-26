@@ -47,4 +47,18 @@ describe('Testing Nox', function () {
     expect(App3).not.toBeUndefined();
     expect(App3.newFoo).not.toBeUndefined();
   });
+
+  it('should include a created constructor as a dependency into another constructor', function() {
+    Nox('App4', function(app) {
+      app.fn.foo = function() {
+        return true;
+      }
+    });
+
+    Nox('App5', 'App4', function(app, app4) {
+      var instanceOfApp4 = new app4();
+
+      expect(instanceOfApp4.foo()).toBeTruly();
+    });
+  });
 });
