@@ -17,18 +17,17 @@
     //   };
     // });
 
-  Nox('App', function(App) {
+  Nox('App.Home', function(App) {
     // awesome stuff
     App.fn.foo = function() {};
   }); // creates App with foo method
 
-  Nox('App.Home', function(Home) {
-    // awesome stuff
-    Home.fn.yeah = true;
-  }); // creates App.Home
+  Nox('App.Yeah', ['App.Home'], function(yeah, home) {
+    console.log(new home());
+  })
 
-  var a = new App();
-  var b = new App.Home();
+  // var a = new App();
+  // var b = new App.Home();
   </script>
 </body>
 </html>

@@ -52,7 +52,7 @@
 
     // Adds the new constructor as a Nox Module
     Nox.module(ns_string, function(box) {
-      box[ns_string] = fn.parent[fn.index];
+      box[ns_string] = namespace;
     });
   };
 

@@ -20,14 +20,6 @@
       modules = mods[0];
     }
 
-    // '*' is passed, gets all modules
-    if(modules && modules[0] === '*') {
-      modules = [];
-      for(i in Nox.modules) {
-        modules.push(i);
-      }
-    }
-
     // checks if the module exists
     for(i = 0; i < modules.length; i += 1) {
       if(!Nox.modules[modules[i]]) {

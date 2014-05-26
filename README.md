@@ -45,26 +45,21 @@ I'm still working on this... my plan is when you have a initialize method attach
 
 ### Modules
 
-Well, you can use dependency injection for managing your modules, like this:
+You can use dependency injection for managing your modules.
+
 
 ``` js
-Nox('App.Home.view', 'dom', function(box) {
+Nox('App.Home.view', 'dom', function(view, dom) {
   // awesome stuff
-  box.dom.someAction();
+  dom.someAction();
 });
 
-Nox('App.Video.view', ['dom', 'ajax'], function(box) {
+Nox('App.Video.view', ['dom', 'ajax'], function(view, dom, ajax) {
   // awesome stuff
-  box.dom.someAction();
-  box.ajax.someAction();
+  dom.someAction();
+  ajax.someAction();
 });
 
-Nox('App.Login.view', '*', function(box) {
-  // awesome stuff
-  box.dom.someAction();
-  box.ajax.someAction();
-  box.someOtherThing.someAction();
-});
 ```
 
 It accepts an **Array** or **Multiple parameters** as dependencies... And the coolest part is: You don't have to include all modules in your project!
@@ -72,6 +67,18 @@ It accepts an **Array** or **Multiple parameters** as dependencies... And the co
 A module is a seperate part of **Nox**, so if your project is small and you want to use only the `ajax` module, you can download the script of this module and include in your page...
 
 You don't even need any module to start with **Nox**
+
+Also your namespaces is automatically turned into a Nox.js module, so you can use dependency injection from a constructor into another constructor.
+
+```js
+Nox('App1', function(app1) {
+  app1.fn.yeah = true;
+});
+
+Nox('App2', 'App1', function(app2, app1) {
+  new app1();
+});
+```
 
 ### Create your own module
 
@@ -94,6 +101,8 @@ Nox('App', 'myCoolModule', function(box) {
 
 If you try to create 2 modules with the same name, it will throw an Error.
 
+If you try to create a module with a name of a namespace already created, it will throw an Error.
+
 Ah, don't forget that you have to include your new module **after** Nox.js was included.
 
 ## Todos
@@ -101,8 +110,6 @@ Ah, don't forget that you have to include your new module **after** Nox.js was i
 - Create the modules (There is none ready), but you can still use Nox.js for structuring your app, or create your own module.
 
 - Refactor a little bit the core code.
-
-- Implement a way to create constructors, not only objects
 
 - Improve this README.
 

@@ -57,7 +57,7 @@
 
     // Adds the new constructor as a Nox Module
     Nox.module(ns_string, function(box) {
-      box[ns_string] = fn.parent[fn.index];
+      box[ns_string] = namespace;
     });
   };
 
@@ -131,14 +131,6 @@
       modules = mods;
     } else if(mods[0] && typeof mods[0] === 'object') {
       modules = mods[0];
-    }
-
-    // '*' is passed, gets all modules
-    if(modules && modules[0] === '*') {
-      modules = [];
-      for(i in Nox.modules) {
-        modules.push(i);
-      }
     }
 
     // checks if the module exists

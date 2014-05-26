@@ -36,24 +36,6 @@ describe('Testing getModules method', function() {
     });
   });
 
-  it('Should return all modules if * is passed as string', function() {
-    // it means that its beeing created as Nox('namespace', '*', function() {});
-    var val = Nox.methods.getModules(['*']);
-
-    for(var index in Nox.modules) {
-      expect(val.indexOf(index)).not.toEqual(-1);
-    }
-  });
-
-  it('Should return all modules if * is passed as array', function() {
-    // it means that its beeing created as Nox('namespace', ['*'], function() {});
-    var val = Nox.methods.getModules([['*']]);
-
-    for(var index in Nox.modules) {
-      expect(val.indexOf(index)).not.toEqual(-1);
-    }
-  });
-
   it('Should throw an error if the module doesn\'t exist', function() {
     expect(function() {
       Nox.methods.getModules(['noModuleHere']);
