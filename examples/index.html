@@ -11,11 +11,28 @@
   <script src="modules/foo.js"></script>
 
   <script>
-    Nox('App.Home', ['foo', 'isis'], function(box) {
-      this.initialize = function() {
-        console.log(box.foo.sayHi());
-      };
+    // Nox('App.Home', ['foo', 'isis'], function(box) {
+    //   this.initialize = function() {
+    //     console.log(box.foo.sayHi());
+    //   };
+    // });
+
+    Nox('Teste.Hue', ['isis'], function(Hue, isis) {
+      Hue.fn.hue = true;
+      console.log(isis);
     });
+
+
+    // var a = new Teste.Hue();
+    Nox('New', ['isis', 'Teste.Hue'], function(New, isis, Hue) {
+      var a = new Hue();
+
+      console.log(a.hue);
+    });
+
+    new New();
+
+    console.log(Nox.modules);
   </script>
 </body>
 </html>

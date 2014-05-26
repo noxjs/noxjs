@@ -22,6 +22,8 @@
       // dependencies are stored to pass in the callback
       dependencies = {},
 
+      newArgs = [],
+
       // the function after aliased and with modules
       fn,
 
@@ -31,15 +33,27 @@
     // starts all the modules
     for(i = 0; i < modules.length; i += 1) {
       Nox.modules[modules[i]](dependencies);
+      newArgs.push(dependencies[modules[i]]);
     }
+
 
     // adds the Callback to the namespace
     fn = Nox.methods.namespace(ns_string);
-    fn = fn.parent[fn.index] = new Callback(dependencies);
+
+    fn.parent[fn.index] = function() {
+      fn.parent[fn.index].fn = fn.parent[fn.index].prototype;
+      newArgs.unshift(fn.parent[fn.index]);
+      Callback.apply({}, newArgs);
+    };
+
+    Nox.module(ns_string, function(box) {
+      box[ns_string] = fn.parent[fn.index];
+    });
+    // fn = fn.parent[fn.index] = new Callback(dependencies);
 
     // if it has initialize, then runs it
     // uses return so it can pass on jshint
-    return fn.initialize && fn.initialize();
+    // return fn.initialize && fn.initialize();
   };
 
   // Adds Nox to the global namespace
