@@ -31,7 +31,7 @@ Nox('App', function(App) {
 }); // creates App
 
 Nox('App.Home', function(Home) {
-  Home.fn.isis = function() {}
+  Home.fn.Home = function() {}
 }); // creates App.Home
 ```
 
@@ -41,7 +41,7 @@ So you will have both the `App` constructor and `App.Home` constructor.
 
 ### Initialize
 
-I'm still working on this... my plan is when you have a initialize method attached to the prototype, it will be imediatly invoked when an instance is created (some helps would be greate *.*).
+I'm still working on this... my plan is when you have a initialize method attached to the prototype, it will be imediatly invoked when an instance is created (some help would be great).
 
 ### Modules
 
@@ -76,13 +76,15 @@ Nox('App1', function(app1) {
 });
 
 Nox('App2', 'App1', function(app2, app1) {
-  new app1();
+  var foo = new app1();
+
+  foo.yeah(); // true
 });
 ```
 
 ### Create your own module
 
-You can easily create your own module, just follow the structure above:
+You can easily create your own module using `Nox.module`
 
 ```js
 Nox.module('myCoolModule', function(box) {
@@ -94,8 +96,8 @@ Nox.module('myCoolModule', function(box) {
 });
 
 // usage
-Nox('App', 'myCoolModule', function(box) {
-  box.myCoolModule.myCoolMethod(); // Nox :)
+Nox('App', 'myCoolModule', function(app, myCoolModule) {
+  myCoolModule.myCoolMethod(); // Nox :)
 })
 ```
 
