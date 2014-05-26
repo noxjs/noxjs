@@ -9,12 +9,15 @@ It does't need jQuery or any third-party library, although you can use any with 
 Creating namespaces is easy:
 
 ``` js
-Nox('App', function() {
-  this.foo = function() {};
+Nox('App', function(App) {
+  App.fn.foo = function() {};
 });
+
+var myInstanceOfApp = new App();
+
 ```
 
-As simple as that... you just created a simple var called `App`, which contains an `object` with a `foo` method.
+As simple as that... you just created a simple var called `App`, which is a constructor, and `myInstanceOfApp` is (as the variable says) an instance of App, and contains a `foo` method attached to it's prototype (`fn` stands for prototype, you could also use `App.prototype.foo`, it would work the same).
 
 Let`s get further...
 
@@ -23,33 +26,22 @@ Let`s get further...
 You can create some namespaces like this:
 
 ``` js
-Nox('App', function() {
-  // awesome stuff
-  this.foo = function() {};
-}); // creates App with foo method
+Nox('App', function(App) {
+  App.fn.foo = function() {};
+}); // creates App
 
-Nox('App.Home', function() {
-  // awesome stuff
+Nox('App.Home', function(Home) {
+  Home.fn.isis = function() {}
 }); // creates App.Home
 ```
 
 It dinamically creates your namespaces, respecting the previous ones already created.
 
-So you will have both `App.foo` and `App.Home`
+So you will have both the `App` constructor and `App.Home` constructor.
 
 ### Initialize
 
-If you attach an initialize method to your object, it will be instantly called after you create your object
-
-``` js
-Nox('App.Home.view', function() {
-  this.initialize = function() {
-    console.log('yeah');
-  }
-});
-// Log: yeah
-
-```
+I'm still working on this... my plan is when you have a initialize method attached to the prototype, it will be imediatly invoked when an instance is created (some helps would be greate *.*).
 
 ### Modules
 
