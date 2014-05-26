@@ -17,22 +17,17 @@
     //   };
     // });
 
-    Nox('Teste.Hue', ['isis'], function(Hue, isis) {
-      Hue.fn.hue = true;
-      console.log(isis);
+    Nox('App', ['isis'], function(App, isis) {
+      App.fn.initialize = function() {
+        console.log('hue');
+      };
+
+      App.fn.teste = function() {
+        console.log(this.abc);
+      }
     });
 
-
-    // var a = new Teste.Hue();
-    Nox('New', ['isis', 'Teste.Hue'], function(New, isis, Hue) {
-      var a = new Hue();
-
-      console.log(a.hue);
-    });
-
-    new New();
-
-    console.log(Nox.modules);
+    var a = new App();
   </script>
 </body>
 </html>

@@ -11,9 +11,8 @@
       // first arg is the namespace
       ns_string = Nox.methods.getNamespace(args),
 
-      // last arg is the callback, capital letters because it
-      // will be invoked as a class with "new"
-      Callback = Nox.methods.getCallback(args),
+      // last arg is the callback
+      callback = Nox.methods.getCallback(args),
 
       // all modules from the args will be stored in here
       modules = Nox.methods.getModules(args),
@@ -25,7 +24,7 @@
       newArgs = [],
 
       // the function after aliased and with modules
-      fn,
+      namespace,
 
       // used in loopings
       i;
@@ -36,27 +35,29 @@
       newArgs.push(dependencies[modules[i]]);
     }
 
-
     // adds the Callback to the namespace
-    fn = Nox.methods.namespace(ns_string);
+    namespace = Nox.methods.namespace(ns_string);
 
-    fn.parent[fn.index] = function() {
-      fn.parent[fn.index].fn = fn.parent[fn.index].prototype;
-      newArgs.unshift(fn.parent[fn.index]);
-      Callback.apply({}, newArgs);
+    namespace = namespace.parent[namespace.index] = function() {
+      // adds the prototype to a index called "fn" (thx jquery)
+      namespace.fn = namespace.prototype;
+
+      // adds the function itself to the newArgs
+      newArgs.unshift(namespace);
+
+      // calls the callback with the function itself, and the dependencies
+      callback.apply({}, newArgs);
+      // console.log(fn.parent[fn.index]);
     };
 
+    // Adds the new constructor as a Nox Module
     Nox.module(ns_string, function(box) {
       box[ns_string] = fn.parent[fn.index];
     });
-    // fn = fn.parent[fn.index] = new Callback(dependencies);
-
-    // if it has initialize, then runs it
-    // uses return so it can pass on jshint
-    // return fn.initialize && fn.initialize();
   };
 
-  // Adds Nox to the global namespace
   Nox.modules = {};
+
+  // Adds Nox to the global namespace
   global.Nox = Nox;
 } (this));
