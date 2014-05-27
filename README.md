@@ -17,7 +17,7 @@ var myInstanceOfApp = new App();
 
 ```
 
-As simple as that... you just created a simple var called `App`, which is a constructor, and `myInstanceOfApp` is (as the variable says) an instance of App, and contains a `foo` method attached to it's prototype (`fn` stands for prototype, you could also use `App.prototype.foo`, it would work the same).
+As simple as that... you just created a simple var called `App`, which is a constructor, and `myInstanceOfApp` is (as the variable says) an instance of App, and contains a `foo` method attached to it's prototype (`fn` stands for prototype).
 
 Let`s get further...
 
