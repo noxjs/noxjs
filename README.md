@@ -107,6 +107,10 @@ If you try to create a module with a name of a namespace already created, it wil
 
 Ah, don't forget that you have to include your new module **after** Nox.js was included.
 
+## Modules
+
+- [Events](https://github.com/noxjs/noxjs-events)
+
 ## Todos
 
 - Refactor a little bit the core code.
