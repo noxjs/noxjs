@@ -109,8 +109,6 @@ Ah, don't forget that you have to include your new module **after** Nox.js was i
 
 ## Todos
 
-- Create the modules (There is none ready), but you can still use Nox.js for structuring your app, or create your own module.
-
 - Refactor a little bit the core code.
 
 - Improve this README.
