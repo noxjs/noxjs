@@ -2,7 +2,7 @@
 
 Nox.js helps you defining namespaces, injecting your dependencies (if any) and modularizing your application.
 
-It does't need jQuery or any third-party library, although you can use any with no problems.
+It does't need jQuery or any third-part library, although you can use any with no problems.
 
 ## Usage
 
