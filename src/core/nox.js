@@ -17,11 +17,11 @@
       // all modules from the args will be stored in here
       modules = Nox.methods.getModules(args),
 
+      newArgs = [],
+
       // defines a dependencies object, where all
       // dependencies are stored to pass in the callback
-      dependencies = {},
-
-      newArgs = [],
+      dependencie,
 
       // the function after aliased and with modules
       namespace,
@@ -31,8 +31,9 @@
 
     // starts all the modules
     for(i = 0; i < modules.length; i += 1) {
-      Nox.modules[modules[i]](dependencies);
-      newArgs.push(dependencies[modules[i]]);
+      dependencie = {};
+      Nox.modules[modules[i]](dependencie);
+      newArgs.push(dependencie);
     }
 
     // adds the Callback to the namespace
