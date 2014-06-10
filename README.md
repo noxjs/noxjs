@@ -41,7 +41,7 @@ So you will have both the `App` constructor and `App.Home` constructor.
 
 ### Initialize
 
-When you have an initialize method attached to the `fn`, it is automatically called when a new instance is created:
+When you have an `initialize` method attached to the `fn`, it is automatically called when a new instance is created:
 
 ``` js
 Nox('App', function(app) {
