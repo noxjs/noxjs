@@ -1,4 +1,4 @@
-/** nox.js - v0.0.3 - 2014-06-03
+/** nox.js - v0.0.4 - 2014-06-09
 * Copyright (c) 2014 Mauricio Soares de Oliveira;
 * Licensed MIT 
 */
@@ -53,7 +53,10 @@
 
       // calls the callback with the function itself, and the dependencies
       callback.apply({}, newArgs);
-      // console.log(fn.parent[fn.index]);
+
+      if(typeof namespace.fn.initialize === 'function') {
+        namespace.fn.initialize();
+      }
     };
 
     // Adds the new constructor as a Nox Module

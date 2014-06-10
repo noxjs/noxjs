@@ -19,21 +19,23 @@ describe('Testing Nox', function () {
     expect(instanceOfApp.text).toEqual('text');
   });
 
-  // it('should call initialize, if it is defined', function() {
-  //   var foo = {
-  //     fn: function() {}
-  //   };
+  it('should call initialize, if it is defined', function() {
+    var foo = {
+      fn: function() {}
+    };
 
-  //   spyOn(foo, 'fn');
+    spyOn(foo, 'fn');
 
-  //   Nox('App2', function(App2) {
-  //     App2.fn.initialize = function() {
-  //       foo.fn();
-  //     };
-  //   });
+    Nox('App2', function(App2) {
+      App2.fn.initialize = function() {
+        foo.fn();
+      };
+    });
 
-  //   expect(foo.fn).toHaveBeenCalled();
-  // });
+    new App2();
+
+    expect(foo.fn).toHaveBeenCalled();
+  });
 
   it('should not delete the previous created variable and methods', function() {
     Nox('App3', function() {

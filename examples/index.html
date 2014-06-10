@@ -12,6 +12,10 @@
 
   <script>
     Nox('App.Home', 'foo', 'isis', function(home, foo, isis) {
+      home.fn.initialize = function() {
+        console.log('Initialized');
+      }
+
       home.fn.yeah = function() {
         console.log('teste');
       }
