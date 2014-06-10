@@ -48,7 +48,10 @@
 
       // calls the callback with the function itself, and the dependencies
       callback.apply({}, newArgs);
-      // console.log(fn.parent[fn.index]);
+
+      if(typeof namespace.fn.initialize === 'function') {
+        namespace.fn.initialize();
+      }
     };
 
     // Adds the new constructor as a Nox Module
