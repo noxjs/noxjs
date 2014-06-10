@@ -41,7 +41,17 @@ So you will have both the `App` constructor and `App.Home` constructor.
 
 ### Initialize
 
-I'm still working on this... my plan is when you have a initialize method attached to the prototype, it will be imediatly invoked when an instance is created (some help would be great).
+When you have an initialize method attached to the `fn`, it is automatically called when a new instance is created:
+
+``` js
+Nox('App', function(app) {
+  app.fn.initialize = function() {
+    console.log('Initialized');
+  }
+});
+
+new App(); // Initialized
+```
 
 ### Modules
 
