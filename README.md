@@ -11,13 +11,16 @@ Creating namespaces is easy:
 ``` js
 Nox('App', function(App) {
   App.fn.foo = function() {};
+
+  // An alternate way to do this is to use prototype
+  // App.prototype.foo = function() {};
 });
 
 var myInstanceOfApp = new App();
 
 ```
 
-As simple as that... you just created a simple var called `App`, which is a constructor, and `myInstanceOfApp` is (as the variable says) an instance of App, and contains a `foo` method attached to it's prototype (`fn` stands to prototype, you have to use this alias, I'm working on a manner to use both `fn` and `prototype`).
+As simple as that... you just created a simple var called `App`, which is a constructor, and `myInstanceOfApp` is (as the variable says) an instance of App, and contains a `foo` method attached to it's prototype (`fn` stands to prototype, you can use `prototype` instead of `fn` if you will).
 
 Let`s get further...
 
