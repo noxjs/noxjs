@@ -47,10 +47,10 @@
       newArgs.unshift(namespace);
 
       // calls the callback with the function itself, and the dependencies
-      callback.apply({}, newArgs);
+      callback.apply(this, newArgs);
 
       if(typeof namespace.fn.initialize === 'function') {
-        namespace.fn.initialize();
+        namespace.fn.initialize.call(this);
       }
     };
 

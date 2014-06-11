@@ -13,16 +13,15 @@
   <script>
     Nox('App.Home', 'foo', 'isis', function(home, foo, isis) {
       home.fn.initialize = function() {
-        console.log('Initialized');
+        this.firstParam = true;
       }
 
-      home.fn.yeah = function() {
-        console.log('teste');
+      home.fn.flip = function() {
+        this.firstParam = !this.firstParam;
       }
     });
 
     var instanceOfHome = new App.Home();
-    instanceOfHome.yeah();
   </script>
 </body>
 </html>

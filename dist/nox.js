@@ -1,4 +1,4 @@
-/** nox.js - v0.0.4 - 2014-06-09
+/** nox.js - v0.0.4 - 2014-06-11
 * Copyright (c) 2014 Mauricio Soares de Oliveira;
 * Licensed MIT 
 */
@@ -52,10 +52,10 @@
       newArgs.unshift(namespace);
 
       // calls the callback with the function itself, and the dependencies
-      callback.apply({}, newArgs);
+      callback.apply(this, newArgs);
 
       if(typeof namespace.fn.initialize === 'function') {
-        namespace.fn.initialize();
+        namespace.fn.initialize.call(this);
       }
     };
 
