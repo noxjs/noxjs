@@ -1,4 +1,4 @@
-/** nox.js - v0.0.4 - 2014-06-11
+/** nox.js - v0.0.5 - 2014-06-11
 * Copyright (c) 2014 Mauricio Soares de Oliveira;
 * Licensed MIT 
 */
