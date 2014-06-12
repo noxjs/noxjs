@@ -37,6 +37,20 @@ describe('Testing Nox', function () {
     expect(foo.fn).toHaveBeenCalled();
   });
 
+  it('should receive parameters in the initialize when an instance is created with parameters', function() {
+    Nox('AppInit', function(app) {
+      app.fn.initialize = function(param) {
+        this.hue = param;
+      }
+    });
+
+    var AppInitInstance = new AppInit(true);
+
+
+
+    expect(AppInitInstance.hue).toEqual(true);
+  });
+
   it('should not delete the previous created variable and methods', function() {
     Nox('App3', function() {
 
