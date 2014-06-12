@@ -118,10 +118,12 @@ You can easily create your own module using `Nox.module`
 ```js
 Nox.module('myCoolModule', function() {
   var myCoolModule = {};
-  
+
   myCoolModule.myCoolMethod: function() {
     return 'Nox :)';
   };
+
+  return myCoolModule;
 });
 
 // usage
