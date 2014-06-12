@@ -60,9 +60,9 @@ If you want to pass parameters to your instance, you can do this though `initial
 
 ``` js
 Nox('App', function(app) {
-	app.fn.initialize = function(param) {
-		this.test = param;
-	}
+  app.fn.initialize = function(param) {
+    this.test = param;
+  }
 });
 
 var newInstance = new App(true);
@@ -116,11 +116,11 @@ Nox('App2', 'App1', function(app2, app1) {
 You can easily create your own module using `Nox.module`
 
 ```js
-Nox.module('myCoolModule', function(box) {
-  box.myCoolModule = {
-    myCoolMethod: function() {
-      return 'Nox :)';
-    }
+Nox.module('myCoolModule', function() {
+  var myCoolModule = {};
+  
+  myCoolModule.myCoolMethod: function() {
+    return 'Nox :)';
   };
 });
 
