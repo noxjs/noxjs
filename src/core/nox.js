@@ -25,9 +25,6 @@
       // slice prototype
       slice = Array.prototype.slice,
 
-      // arguments to initialize
-      initArgs,
-
       // used in loopings
       i;
 
@@ -50,8 +47,7 @@
       callback.apply(this, newArgs);
 
       if(typeof namespace.fn.initialize === 'function') {
-        initArgs = slice.call(arguments);
-        namespace.fn.initialize.apply(this, initArgs);
+        namespace.fn.initialize.apply(this, slice.call(arguments));
       }
     };
 
