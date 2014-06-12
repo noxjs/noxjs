@@ -56,6 +56,22 @@ Nox('App', function(app) {
 new App(); // Initialized
 ```
 
+If you want to pass parameters to your instance, you can do this though `initialize`, all parameters you pass into your instance will be acepted as arguments into your `initialize` method, example:
+
+``` js
+Nox('App', function(app) {
+	app.fn.initialize = function(param) {
+		this.test = param;
+	}
+});
+
+var newInstance = new App(true);
+
+newInstance.test; // true
+```
+
+If you want to use parameters then you need to have an `initialize` method.
+
 ### Modules
 
 You can use dependency injection for managing your modules.
