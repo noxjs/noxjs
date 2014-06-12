@@ -19,10 +19,6 @@
 
       newArgs = [],
 
-      // defines a dependencies object, where all
-      // dependencies are stored to pass in the callback
-      dependencie,
-
       // the function after aliased and with modules
       namespace,
 
@@ -37,10 +33,7 @@
 
     // starts all the modules
     for(i = 0; i < modules.length; i += 1) {
-
-      dependencie = Nox.modules[modules[i]]();
-
-      newArgs.push(dependencie);
+      newArgs.push(Nox.modules[modules[i]]());
     }
 
     // adds the Callback to the namespace

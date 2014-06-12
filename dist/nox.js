@@ -1,4 +1,4 @@
-/** nox.js - v0.0.7 - 2014-06-12
+/** nox.js - v0.0.8 - 2014-06-12
 * Copyright (c) 2014 Mauricio Soares de Oliveira;
 * Licensed MIT 
 */
@@ -24,10 +24,6 @@
 
       newArgs = [],
 
-      // defines a dependencies object, where all
-      // dependencies are stored to pass in the callback
-      dependencie,
-
       // the function after aliased and with modules
       namespace,
 
@@ -42,10 +38,7 @@
 
     // starts all the modules
     for(i = 0; i < modules.length; i += 1) {
-
-      dependencie = Nox.modules[modules[i]]();
-
-      newArgs.push(dependencie);
+      newArgs.push(Nox.modules[modules[i]]());
     }
 
     // adds the Callback to the namespace
