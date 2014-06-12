@@ -132,6 +132,8 @@ Nox('App', 'myCoolModule', function(app, myCoolModule) {
 })
 ```
 
+Don't forget to `return` your module, otherwise it won't work...
+
 If you try to create 2 modules with the same name, it will throw an Error.
 
 If you try to create a module with a name of a namespace already created, it will throw an Error.
