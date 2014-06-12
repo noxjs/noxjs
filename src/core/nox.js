@@ -37,8 +37,9 @@
 
     // starts all the modules
     for(i = 0; i < modules.length; i += 1) {
-      dependencie = {};
-      Nox.modules[modules[i]](dependencie);
+
+      dependencie = Nox.modules[modules[i]]();
+
       newArgs.push(dependencie);
     }
 
@@ -62,8 +63,8 @@
     };
 
     // Adds the new constructor as a Nox Module
-    Nox.module(ns_string, function(box) {
-      box[ns_string] = namespace;
+    Nox.module(ns_string, function() {
+      return namespace;
     });
   };
 

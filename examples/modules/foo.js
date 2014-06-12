@@ -4,19 +4,21 @@
 * @module foo
 */
 
-Nox.module('foo', function(box) {
-  box.foo = {};
+Nox.module('foo', function() {
+  var foo = {};
 
   /**
   * A request method
   *
   * @method request
   */
-  box.foo.sayHi = function() {
+  foo.sayHi = function() {
 
   };
 
-  box.foo.sayHello = function() {
+  foo.sayHello = function() {
 
   };
+
+  return foo;
 });

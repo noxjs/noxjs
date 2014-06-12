@@ -11,17 +11,15 @@
   <script src="modules/foo.js"></script>
 
   <script>
-    Nox('App.Home', 'foo', 'isis', function(home, foo, isis) {
-      home.fn.initialize = function(param1) {
-        this.firstParam = param1;
-      }
-
-      home.fn.flip = function() {
-        this.firstParam = !this.firstParam;
-      }
+    Nox('App.Home', function(home) {
+      home.fn.test = true;
     });
 
-    var instanceOfHome = new App.Home(true);
+    Nox('Hue', 'App.Home', 'isis', function(hue, app, isis) {
+      console.log(new app());
+    });
+
+    new Hue;
   </script>
 </body>
 </html>
