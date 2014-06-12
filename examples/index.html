@@ -12,8 +12,8 @@
 
   <script>
     Nox('App.Home', 'foo', 'isis', function(home, foo, isis) {
-      home.fn.initialize = function() {
-        this.firstParam = true;
+      home.fn.initialize = function(param1) {
+        this.firstParam = param1;
       }
 
       home.fn.flip = function() {
@@ -21,7 +21,7 @@
       }
     });
 
-    var instanceOfHome = new App.Home();
+    var instanceOfHome = new App.Home(true);
   </script>
 </body>
 </html>

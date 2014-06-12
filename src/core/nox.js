@@ -26,6 +26,12 @@
       // the function after aliased and with modules
       namespace,
 
+      // slice prototype
+      slice = Array.prototype.slice,
+
+      // arguments to initialize
+      initArgs,
+
       // used in loopings
       i;
 
@@ -50,7 +56,8 @@
       callback.apply(this, newArgs);
 
       if(typeof namespace.fn.initialize === 'function') {
-        namespace.fn.initialize.call(this);
+        initArgs = slice.call(arguments);
+        namespace.fn.initialize.apply(this, initArgs);
       }
     };
 
