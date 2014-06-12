@@ -1,6 +1,6 @@
 {
   "name": "nox.js",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Methods, dependency injection and namespaces made easy",
   "author": "Mauricio Soares de Oliveira",
   "homepage": "https://github.com/msodeveloper/nox.js",
