@@ -93,6 +93,7 @@ Nox('Sale', function(sale) {
 // tax1 is the decorate
 Nox.decorator('Sale_tax1', {
   getPrice: function() {
+    // uber points to the previous reference of sale
     var price = this.uber.getPrice();
     return price += 50;
   }
@@ -118,9 +119,11 @@ sale2.getPrice(); // 100
 
 When creating a decorator, the first parameter is the decorator string...
 
-So for example this string: `Sale_tax1`, Sale is my Nox constructor, and tax1 is the name of the decorator... It **must** be seperated with underline (_).
+So for example this string: `Sale_tax1`, `Sale` is my Nox constructor, and `tax1` is the name of the decorator... It **must** be seperated with underline (_).
 
 The second parameter is an `object`, which contains all the methods you want to decorate.
+
+`uber` poinst to the previous reference of the instance, so you should use it to get the previous value of a method, otherwise this should not work as expected.
 
 All constructors created with Nox automatically has an `decorate` method attached to its prototype.
 
