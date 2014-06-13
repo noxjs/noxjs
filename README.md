@@ -1,6 +1,6 @@
 # Nox.js
 
-Nox.js helps you defining namespaces, injecting your dependencies (if any) and modularizing your application.
+Nox.js helps you defining namespaces, injecting your dependencies (if any), using decorators and modularizing your application.
 
 It does't need jQuery or any third-part library, although you can use any with no problems.
 
@@ -71,6 +71,53 @@ newInstance.test; // true
 ```
 
 If you want to use parameters then you need to have an `initialize` method.
+
+### Decorators
+
+Decorator is a cool pattern, and can be easily implemented when you are using Nox! Let's get some code:
+
+``` js
+// I'll use a sale example, where taxes can be added to differente sales
+Nox('Sale', function(sale) {
+  sale.fn.initialize = function(price) {
+    this.price = price;
+  };
+
+  sale.fn.getPrice = function() {
+    return this.price;
+  };
+});
+
+// Now I'll create some decorators, for different taxes
+// Sale stands to the nox constructor
+// tax1 is the decorate
+Nox.decorator('Sale_tax1', {
+  getPrice: function() {
+    var price = this.uber.getPrice();
+    return price += 50;
+  }
+});
+
+Nox.decorator('Sale_tax1', {
+  getPrice: function() {
+    var price = this.uber.getPrice();
+    return price += 30;
+  }
+});
+
+var sale = new Sale(100);
+sale = sale.decorate('tax1');
+sale = sale.decorate('tax2');
+sale.getPrice(); // 180
+```
+
+When creating a decorator, the first parameter is the decorator string...
+
+So for example this string: `Sale_tax1`, Sale is my Nox constructor, and tax1 is the name of the decorator... It **must** be seperated with underline (_).
+
+The second parameter is an `object`, which contains all the methods you want to decorate.
+
+All constructors created with Nox automatically has an `decorate` method attached to its prototype.
 
 ### Modules
 
