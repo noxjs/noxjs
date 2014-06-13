@@ -50,9 +50,7 @@
         namespace.fn.initialize.apply(this, slice.call(arguments));
       }
 
-      if(!Nox.methods.addDecorator(namespace.fn)) {
-        throw new Error('An error ocurred while adding decorator to the prototype');
-      }
+      Nox.methods.addDecorator(namespace.fn);
     };
 
     // Adds the new constructor as a Nox Module

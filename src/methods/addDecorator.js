@@ -23,7 +23,5 @@
       }
       return newobj;
     };
-
-    return true;
   };
 } (this, this.Nox));

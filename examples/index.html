@@ -11,7 +11,8 @@
   <script src="modules/foo.js"></script>
 
   <script>
-    Nox('App.Home', function(home) {
+    // Just a simple constructor with some dependency injections
+    Nox('App.Home', 'isis', function(home, isis) {
       home.fn.initialize = function(param) {
         this.firstParam = param;
       }
@@ -22,6 +23,29 @@
     });
 
     var instanceOfApp = new App.Home(100);
+
+    // Decorator example
+    Nox('Sale', function(sale) {
+      sale.fn.initialize = function(price) {
+        this.price = price;
+      }
+
+      sale.fn.getPrice = function() {
+        return this.price;
+      }
+    });
+
+    Nox.decorator('Sale_taxfed', {
+      getPrice: function() {
+        var price = this.uber.getPrice();
+        return price += 50;
+      }
+    });
+
+    var sale = new Sale(100);
+    sale = sale.decorate('taxfed');
+    sale = sale.decorate('taxfed');
+    console.log(sale.getPrice());
   </script>
 </body>
 </html>

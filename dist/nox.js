@@ -54,6 +54,8 @@
       if(typeof namespace.fn.initialize === 'function') {
         namespace.fn.initialize.apply(this, slice.call(arguments));
       }
+
+      Nox.methods.addDecorator(namespace.fn);
     };
 
     // Adds the new constructor as a Nox Module
@@ -93,10 +95,52 @@
 (function() {
   'use strict';
 
-  Nox.decorator = function(namespace, fn) {
+  Nox.decorator = function(ns_string, fn) {
+    var namespace = Nox.methods.namespace(ns_string),
+    decorator_string,
+    constr;
 
+    // splits the string, and gets the decorators name
+    decorator_string = namespace.index.split('_');
+
+    // alias for the constructor
+    constr = namespace.parent[decorator_string[0]];
+
+    // constructor receives decorators if they already exist
+    constr.decorators = constr.decorators || {};
+
+    // adds the index of new decorator
+    constr.decorators[decorator_string[1]] = fn;
   };
 } ());
+/**
+* Adds the decorate method to the prototype
+*
+* @method addDecorator
+* @param {Object} fn The prototype of the new Nox Contructor
+* @return {Boolean} Returns true or false if everything ocurred ok
+*/
+(function(global, Nox) {
+  'use strict';
+  Nox.methods = Nox.methods || {};
+
+  Nox.methods.addDecorator = function(fn) {
+    fn.decorate = function(decorator) {
+      var overrides = this.constructor.decorators[decorator],
+      newobj,
+      i;
+
+      newobj = Object.create(this);
+      newobj.uber = this;
+
+      for(i in overrides) {
+        newobj[i] = overrides[i];
+      }
+      return newobj;
+    };
+  };
+} (this, this.Nox));
+
 /**
 * Returns the last index of the array, which is the callback
 *
