@@ -42,9 +42,16 @@
       }
     });
 
+    Nox.decorator('Sale_otherfed', {
+      getPrice: function() {
+        var price = this.uber.getPrice();
+        return price += 30;
+      }
+    });
+
     var sale = new Sale(100);
     sale = sale.decorate('taxfed');
-    sale = sale.decorate('taxfed');
+    sale = sale.decorate('otherfed');
     console.log(sale.getPrice());
   </script>
 </body>
