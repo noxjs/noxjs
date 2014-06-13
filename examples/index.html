@@ -12,14 +12,16 @@
 
   <script>
     Nox('App.Home', function(home) {
-      home.fn.test = true;
+      home.fn.initialize = function(param) {
+        this.firstParam = param;
+      }
+
+      home.fn.getParam = function() {
+        return this.firstParam;
+      }
     });
 
-    Nox('Hue', 'App.Home', 'isis', function(hue, app, isis) {
-      console.log(new app());
-    });
-
-    new Hue;
+    var instanceOfApp = new App.Home(100);
   </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/** nox.js - v0.0.8 - 2014-06-12
+/** nox.js - v0.0.8 - 2014-06-13
 * Copyright (c) 2014 Mauricio Soares de Oliveira;
 * Licensed MIT 
 */
@@ -90,6 +90,13 @@
   };
 } (this.Nox));
 
+(function() {
+  'use strict';
+
+  Nox.decorator = function(namespace, fn) {
+
+  };
+} ());
 /**
 * Returns the last index of the array, which is the callback
 *
