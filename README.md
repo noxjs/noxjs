@@ -119,7 +119,7 @@ sale2.getPrice(); // 100
 
 When creating a decorator, the first parameter is the decorator string...
 
-So for example this string: `Sale_tax1`, `Sale` is my Nox constructor, and `tax1` is the name of the decorator... It **must** be seperated with underline (_).
+So for example this string: `Sale_tax1`, `Sale` is my Nox constructor, and `tax1` is the name of the decorator... It **must** be seperated with underline (_). If your nox module is `App.Sale`, then your decorator should be `App.Sale_decorator`
 
 The second parameter is an `object`, which contains all the methods you want to decorate.
 
