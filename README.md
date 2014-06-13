@@ -106,9 +106,14 @@ Nox.decorator('Sale_tax1', {
 });
 
 var sale = new Sale(100);
+var sale2 = new Sale(100);
+
 sale = sale.decorate('tax1');
 sale = sale.decorate('tax2');
 sale.getPrice(); // 180
+sale2.getPrice(); // 100
+
+
 ```
 
 When creating a decorator, the first parameter is the decorator string...
