@@ -1,4 +1,4 @@
-/** nox.js - v0.1.0 - 2014-06-13
+/** nox.js - v0.0.8 - 2014-06-13
 * Copyright (c) 2014 Mauricio Soares de Oliveira;
 * Licensed MIT 
 */
@@ -95,7 +95,16 @@
 (function() {
   'use strict';
 
-  Nox.decorator = function(ns_string, fn) {
+  /**
+  * Includes a new decorate into the decorator of the constructor
+  *
+  * @method decorator
+  * @param {String} ns_string name of the module and decorator splited by an underline,
+  * example: 'App.Home_mydecorator'
+  * @param {Object} obj the new object that the constructor will receive
+  */
+
+  Nox.decorator = function(ns_string, obj) {
     var namespace = Nox.methods.namespace(ns_string),
     decorator_string,
     constr;
@@ -110,7 +119,7 @@
     constr.decorators = constr.decorators || {};
 
     // adds the index of new decorator
-    constr.decorators[decorator_string[1]] = fn;
+    constr.decorators[decorator_string[1]] = obj;
   };
 } ());
 /**
