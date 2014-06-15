@@ -1,4 +1,4 @@
-/** nox.js - v0.2.0 - 2014-06-15
+/** nox.js - v0.2.1 - 2014-06-15
 * Copyright (c) 2014 Mauricio Soares de Oliveira;
 * Licensed MIT 
 */
@@ -203,15 +203,11 @@
     }
 
     if(typeof fn.removeListener !== 'function') {
-      fn.removeListener = function(event, listener) {
+      fn.removeListener = function(event) {
         var idx;
 
         if(typeof this.events[event] === 'object') {
-          idx = indexOf(this.events[event], listener);
-
-          if(idx > -1) {
-            this.events[event].splice(idx, 1);
-          }
+          delete this.events[event];
         }
       };
     }
