@@ -129,7 +129,7 @@ All constructors created with Nox automatically has an `decorate` method attache
 
 ### Event Emitter
 
-You emit events from a constructor to another, using `on`, `emit`.
+You can emit events from a constructor to another, using `on`, `emit`.
 
 ``` js
 Nox('App.EmitSample', function(app) {
@@ -161,6 +161,12 @@ You can use `once` to emit an event only once (duh!), if you try to emit that ev
 ``` js
 // using the previous code...
 emitter.once('another-custom-event', function() {});
+```
+
+You can also delete an event using `removeListener`:
+
+``` js
+emitter.removeListener('custom-emitter');
 ```
 
 ### Modules
