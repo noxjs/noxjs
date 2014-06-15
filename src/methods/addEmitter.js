@@ -48,15 +48,11 @@
     }
 
     if(typeof fn.removeListener !== 'function') {
-      fn.removeListener = function(event, listener) {
+      fn.removeListener = function(event) {
         var idx;
 
         if(typeof this.events[event] === 'object') {
-          idx = indexOf(this.events[event], listener);
-
-          if(idx > -1) {
-            this.events[event].splice(idx, 1);
-          }
+          delete this.events[event];
         }
       };
     }
