@@ -10,18 +10,20 @@
   Nox.methods = Nox.methods || {};
 
   Nox.methods.addDecorator = function(fn) {
-    fn.decorate = function(decorator) {
-      var overrides = this.constructor.decorators[decorator],
-      newobj,
-      i;
+    if(typeof fn.decorate !== 'function') {
+      fn.decorate = function(decorator) {
+        var overrides = this.constructor.decorators[decorator],
+        newobj,
+        i;
 
-      newobj = Object.create(this);
-      newobj.uber = this;
+        newobj = Object.create(this);
+        newobj.uber = this;
 
-      for(i in overrides) {
-        newobj[i] = overrides[i];
-      }
-      return newobj;
-    };
+        for(i in overrides) {
+          newobj[i] = overrides[i];
+        }
+        return newobj;
+      };
+    }
   };
 } (this, this.Nox));
