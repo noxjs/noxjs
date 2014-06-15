@@ -52,9 +52,32 @@
     var sale = new Sale(100);
     sale = sale.decorate('taxfed');
     sale = sale.decorate('otherfed');
-    console.log(sale.getPrice());
 
     var sale2 = new Sale(100);
+
+    // emitter example
+    Nox('App.EmitSample', function(app) {
+      app.fn.initialize = function() {
+        var emitter = new Emitter();
+        emitter.on('custom-emitter', this.customEmitterCallback.bind(this));
+      }
+
+      app.fn.customEmitterCallback = function(customParam) {
+        console.log('emitting stuff');
+        console.log(customParam);
+      }
+    });
+
+    Nox('Emitter', function(app) {
+      app.fn.initialize = function() {
+        // little trick, waiting to add the ON on the instance
+        setTimeout(function() {
+          this.emit('custom-emitter', true)
+        }.bind(this), 1000)
+      };
+    });
+
+    var instanceOfEmitSample = new App.EmitSample();
   </script>
 </body>
 </html>
