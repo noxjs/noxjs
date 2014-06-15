@@ -1,6 +1,6 @@
 # Nox.js
 
-Nox.js helps you defining namespaces, injecting your dependencies (if any), using decorators and modularizing your application.
+Nox.js helps you defining namespaces, injecting your dependencies (if any), using decorators, emitting events and modularizing your application.
 
 It does't need jQuery or any third-part library, although you can use any with no problems.
 
@@ -126,6 +126,42 @@ The second parameter is an `object`, which contains all the methods you want to 
 `uber` poinst to the previous reference of the instance, so you should use it to get the previous value of a method, otherwise this should not work as expected.
 
 All constructors created with Nox automatically has an `decorate` method attached to its prototype.
+
+### Event Emitter
+
+You emit events from a constructor to another, using `on`, `emit`.
+
+``` js
+Nox('App.EmitSample', function(app) {
+  app.fn.initialize = function() {
+    var emitter = new Emitter();
+    emitter.on('custom-emitter', this.customEmitterCallback.bind(this));
+  }
+
+  app.fn.customEmitterCallback = function(customParam) {
+    console.log('emitting stuff');
+    console.log(customParam);
+  }
+});
+
+Nox('Emitter', function(app) {
+  app.fn.initialize = function() {
+    // little trick, waiting to add the ON on the instance
+    setTimeout(function() {
+      this.emit('custom-emitter', true)
+    }.bind(this), 1000)
+  };
+});
+
+var instanceOfEmitSample = new App.EmitSample();
+```
+
+You can use `once` to emit an event only once (duh!), if you try to emit that event twice, it won't exist.
+
+``` js
+// using the previous code...
+emitter.once('another-custom-event', function() {});
+```
 
 ### Modules
 
