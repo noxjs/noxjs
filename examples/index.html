@@ -58,13 +58,14 @@
     // emitter example
     Nox('App.EmitSample', function(app) {
       app.fn.initialize = function() {
-        var emitter = new Emitter();
-        emitter.on('custom-emitter', this.customEmitterCallback.bind(this));
+        this.emitter = new Emitter();
+        this.emitter.on('custom-emitter', this.customEmitterCallback.bind(this));
       }
 
       app.fn.customEmitterCallback = function(customParam) {
         console.log('emitting stuff');
         console.log(customParam);
+        this.emitter.removeListener('custom-emitter');
       }
     });
 
