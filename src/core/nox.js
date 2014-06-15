@@ -46,11 +46,12 @@
       // calls the callback with the function itself, and the dependencies
       callback.apply(this, newArgs);
 
+      Nox.methods.addDecorator(namespace.fn);
+      Nox.methods.addEmitter.call(this, namespace.fn);
+
       if(typeof namespace.fn.initialize === 'function') {
         namespace.fn.initialize.apply(this, slice.call(arguments));
       }
-
-      Nox.methods.addDecorator(namespace.fn);
     };
 
     // Adds the new constructor as a Nox Module
