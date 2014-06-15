@@ -169,6 +169,16 @@ You can also delete an event using `removeListener`:
 emitter.removeListener('custom-emitter');
 ```
 
+You are able to add as many events you want using `on` or `once`:
+
+``` js
+emitter.on('custom-event', callback1);
+emitter.on('custom-event', callback2);
+emitter.on('custom-event', callback3);
+```
+
+All of them will be triggered when you use `emit`, but if you use `removeListener`, all of them will be removed (working on a way to determine which one will be removed).
+
 ### Modules
 
 You can use dependency injection for managing your modules.
