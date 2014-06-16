@@ -99,7 +99,7 @@ Nox.decorator('Sale_tax1', {
   }
 });
 
-Nox.decorator('Sale_tax1', {
+Nox.decorator('Sale_tax2', {
   getPrice: function() {
     var price = this.uber.getPrice();
     return price += 30;
