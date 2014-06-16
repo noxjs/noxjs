@@ -13,7 +13,7 @@ describe('Testing decorators implementation', function() {
 
   afterEach(function() {
     var Sale = null;
-    delete Nox.modules.Sale
+    delete Nox.modules.Sale;
   });
   it('should add an "uber" reference to the decorated object, which poinst to the old object', function() {
     Nox.decorator('Sale_taxfed', {});
