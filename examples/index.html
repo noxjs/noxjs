@@ -65,16 +65,13 @@
       app.fn.customEmitterCallback = function(customParam) {
         console.log('emitting stuff');
         console.log(customParam);
-        this.emitter.removeListener('custom-emitter');
       }
     });
 
     Nox('Emitter', function(app) {
       app.fn.initialize = function() {
         // little trick, waiting to add the ON on the instance
-        setTimeout(function() {
-          this.emit('custom-emitter', true)
-        }.bind(this), 1000)
+        setInterval(this.emit.bind(this, 'custom-emitter', true), 1000);
       };
     });
 
