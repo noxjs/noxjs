@@ -1,10 +1,158 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Nox JS</title>
-</head>
-<body>
-  Nox.js :)
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Nox JS</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/libs/prism.css">
+    <link rel="stylesheet" href="assets/libs/normalize.css">
+    <link rel="stylesheet" href="assets/main.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="wrapper">
+        <h1 class="logo">
+          <a href="https://noxjs.github.io/noxjs/" class="logo-link">Nox.js - Organizing your application.</a>
+        </h1>
+      </div>
+    </header>
+
+    <div class="wrapper">
+      <div class="sidebar">
+        <ul>
+          <!-- Introduction -->
+          <li class="sidebar-item">
+            <a class="sidebar-item-link" href="#Introduction">Introduction</a>
+          </li>
+
+          <!-- Namespaces -->
+          <li class="sidebar-item">
+            <a class="sidebar-item-link" href="#Namespaces">Namespaces</a>
+            <ul class="sidebar-item-sub">
+              <li class="sidebar-item-sub-item">
+                <a href="#Namespaces-simple-namespace" class="sidebar-item-sub-item">Simple namespace</a>
+              </li>
+              <li class="sidebar-item-sub-item">
+                <a href="#Namespaces-deeper-namespace" class="sidebar-item-sub-item">Deeper namespaces</a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Initialize -->
+          <li class="sidebar-item">
+            <a class="sidebar-item-link" href="#Initialize">Initialize</a>
+            <ul class="sidebar-item-sub">
+              <li class="sidebar-item-sub-item">
+                <a href="#Initialize-simple-usage" class="sidebar-item-sub-item">Simple Usage</a>
+              </li>
+              <li class="sidebar-item-sub-item">
+                <a href="#Initialize-parameters-to-constructor" class="sidebar-item-sub-item">Parameters to constructor</a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Decorators -->
+          <li class="sidebar-item">
+            <a class="sidebar-item-link" href="#Decorators">Decorators</a>
+            <ul class="sidebar-item-sub">
+              <li class="sidebar-item-sub-item">
+                <a href="#Decorators-simple-usage" class="sidebar-item-sub-item">Simple Usage</a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Event Emitter -->
+          <li class="sidebar-item">
+            <a class="sidebar-item-link" href="#EventEmitter">Event Emitter</a>
+            <ul class="sidebar-item-sub">
+              <li class="sidebar-item-sub-item">
+                <a href="#EventEmitter-on" class="sidebar-item-sub-item">on</a>
+              </li>
+              <li class="sidebar-item-sub-item">
+                <a href="#EventEmitter-emit" class="sidebar-item-sub-item">emit</a>
+              </li>
+              <li class="sidebar-item-sub-item">
+                <a href="#EventEmitter-once" class="sidebar-item-sub-item">once</a>
+              </li>
+              <li class="sidebar-item-sub-item">
+                <a href="#EventEmitter-removeListener" class="sidebar-item-sub-item">removeListener</a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Modules -->
+          <li class="sidebar-item">
+            <a class="sidebar-item-link" href="#Modules">Modules</a>
+            <ul class="sidebar-item-sub">
+              <li class="sidebar-item-sub-item">
+                <a href="#Modules-constructors-as-modules" class="sidebar-item-sub-item">Constructors as modules</a>
+              </li>
+              <li class="sidebar-item-sub-item">
+                <a href="#Modules-your-module" class="sidebar-item-sub-item">Your module</a>
+              </li>
+              <li class="sidebar-item-sub-item">
+                <a href="#Modules-list-of-modules" class="sidebar-item-sub-item">List of modules</a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Browser Support -->
+          <li class="sidebar-item">
+            <a class="sidebar-item-link" href="#BrowserSupport">Browser Support</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container">
+        <div id="Introduction">
+          <h2>Introduction</h2>
+        </div>
+
+        <div id="Namespaces">
+          <h2>Namespaces</h2>
+          <p id="Namespaces-simple-namespace">Simple</p>
+          <p id="Namespaces-deeper-namespace">Deeper Namespaces</p>
+        </div>
+
+        <div id="Initialize">
+          <h2>Initialize</h2>
+          <p id="Initialize-simple-usage">simple usage</p>
+          <p id="Initialize-parameters-to-constructor">Parameters</p>
+        </div>
+
+        <div id="Decorators">
+          <h2>Decorators</h2>
+          <p id="Decorators-simple-usage">simple usage</p>
+        </div>
+
+        <div id="EventEmitter">
+          <h2>Event Emitter</h2>
+          <p id="EventEmitter-on">ON</p>
+          <p id="EventEmitter-emit">Emit</p>
+          <p id="EventEmitter-once">once</p>
+          <p id="EventEmitter-removeListener">remove listener</p>
+        </div>
+
+        <div id="Modules">
+          <h2>Modules</h2>
+          <p id="Modules-constructors-as-modules">constructors as modules</p>
+          <p id="Modules-your-module">your module</p>
+          <p id="Modules-list-of-modules">List of modules</p>
+        </div>
+
+        <div id="BrowserSupport">
+          <h2>Browser Support</h2>
+        </div>
+      </div>
+      <!-- <pre>
+        <code class="language-javascript">
+
+        </code>
+      </pre> -->
+    </div>
+
+
+    <script src="assets/libs/prism.js"></script>
+    <script src="assets/main.js"></script>
+  </body>
 </html>

@@ -1,0 +1,39 @@
+/* Base */
+body {
+  font-family: 'Lato';
+  background-image: url(imgs/bg.png);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+/* Layout */
+.header {
+  position: relative;
+  width: 100%;
+  padding: 5px 0;
+  box-shadow: 0px 1px 2px black;
+  margin-bottom: 20px;
+}
+
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  width: 200px;
+  float: left;
+}
+
+.container {
+  width: 760px;
+  float: left;
+}
