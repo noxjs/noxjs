@@ -16,7 +16,7 @@
         newobj,
         i;
 
-        newobj = Object.create(this);
+        newobj = Nox.methods.objectCreate(this);
         newobj.uber = this;
 
         for(i in overrides) {

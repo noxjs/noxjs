@@ -1,4 +1,4 @@
-/** nox.js - v0.2.1 - 2014-06-15
+/** nox.js - v0.2.2 - 2014-06-16
 * Copyright (c) 2014 Mauricio Soares de Oliveira;
 * Licensed MIT 
 */
@@ -141,7 +141,7 @@
         newobj,
         i;
 
-        newobj = Object.create(this);
+        newobj = Nox.methods.objectCreate(this);
         newobj.uber = this;
 
         for(i in overrides) {
@@ -367,6 +367,34 @@
       parent = parent[parts[i]];
     }
   };
+} (this, this.Nox));
+
+/**
+* polyfill for Object.create
+*
+* @method objectCreate
+* @param {Object} obj The object which will be copied
+* @return {Object} Returns the new object
+*/
+(function(global, Nox) {
+  'use strict';
+  Nox.methods = Nox.methods || {};
+
+  if (!Object.create) {
+    Nox.methods.objectCreate = (function(){
+      function F(){}
+
+      return function(o){
+        if (arguments.length != 1) {
+         throw new Error('Object.create implementation only accepts one parameter.');
+        }
+        F.prototype = o;
+        return new F();
+      };
+    } ());
+  } else {
+    Nox.methods.objectCreate = Object.create;
+  }
 } (this, this.Nox));
 
 /**
