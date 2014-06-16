@@ -132,7 +132,7 @@ All constructors created with Nox automatically has an `decorate` method attache
 You can emit events from a constructor to another, using `on`, `emit`.
 
 ``` js
-Nox('App.EmitSample', function(app) {
+Nox('App.EmitSample', 'App.Emitter', function(app, Emitter) {
   app.fn.initialize = function() {
     var emitter = new Emitter();
     emitter.on('custom-emitter', this.customEmitterCallback.bind(this));
@@ -144,7 +144,7 @@ Nox('App.EmitSample', function(app) {
   }
 });
 
-Nox('Emitter', function(app) {
+Nox('App.Emitter', function(app) {
   app.fn.initialize = function() {
     // little trick, waiting to add the ON on the instance
     setTimeout(function() {
