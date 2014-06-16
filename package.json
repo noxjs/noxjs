@@ -1,0 +1,27 @@
+{
+  "name": "nox.js",
+  "version": "0.2.1",
+  "description": "Methods, dependency injection and namespaces made easy",
+  "author": "Mauricio Soares de Oliveira",
+  "homepage": "https://github.com/msodeveloper/nox.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msodeveloper/nox.js.git"
+  },
+  "main": "nox.js",
+  "scripts": {
+    "test": "grunt jasmine"
+  },
+  "bugs": {
+    "url": "https://github.com/msodeveloper/nox.js/issues"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-jasmine": "^0.6.4",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-uglify": "^0.4.0"
+  }
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+  <script src="../dist/nox.js"></script>
+  <script src="modules/isis.js"></script>
+  <script src="modules/foo.js"></script>
+
+  <script>
+    // Just a simple constructor with some dependency injections
+    Nox('App.Home', 'isis', function(home, isis) {
+      home.fn.initialize = function(param) {
+        this.firstParam = param;
+      }
+
+      home.fn.getParam = function() {
+        return this.firstParam;
+      }
+    });
+
+    var instanceOfApp = new App.Home(100);
+
+    // Decorator example
+    Nox('Sale', function(sale) {
+      sale.fn.initialize = function(price) {
+        this.price = price;
+      }
+
+      sale.fn.getPrice = function() {
+        return this.price;
+      }
+    });
+
+    Nox.decorator('Sale_taxfed', {
+      getPrice: function() {
+        var price = this.uber.getPrice();
+        return price += 50;
+      }
+    });
+
+    Nox.decorator('Sale_otherfed', {
+      getPrice: function() {
+        var price = this.uber.getPrice();
+        return price += 30;
+      }
+    });
+
+    var sale = new Sale(100);
+    sale = sale.decorate('taxfed');
+    sale = sale.decorate('otherfed');
+
+    var sale2 = new Sale(100);
+
+    // emitter example
+    Nox('App.EmitSample', function(app) {
+      app.fn.initialize = function() {
+        this.emitter = new Emitter();
+        this.emitter.on('custom-emitter', this.customEmitterCallback.bind(this));
+      }
+
+      app.fn.customEmitterCallback = function(customParam) {
+        console.log('emitting stuff');
+        console.log(customParam);
+      }
+    });
+
+    Nox('Emitter', function(app) {
+      app.fn.initialize = function() {
+        // little trick, waiting to add the ON on the instance
+        setInterval(this.emit.bind(this, 'custom-emitter', true), 1000);
+      };
+    });
+
+    var instanceOfEmitSample = new App.EmitSample();
+  </script>
+</body>
+</html>
