@@ -36,7 +36,7 @@ module.exports = function(grunt) {
     tagName: 'v%VERSION%',
     tagMessage: 'Version %VERSION%',
     push: true,
-    pushTo: 'master',
+    pushTo: 'https://github.com/noxjs/noxjs.git',
     gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
   };
 
