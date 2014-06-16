@@ -2,6 +2,7 @@
 body {
   font-family: 'Lato';
   background-image: url(imgs/bg.png);
+  font-size: 14px;
 }
 
 ul {
