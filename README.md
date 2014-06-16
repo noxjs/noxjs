@@ -257,6 +257,12 @@ Ah, don't forget that you have to include your new module **after** Nox.js was i
 
 - Improve this README.
 
+## Browser Supoort
+
+* Internet Explorer: **7+**
+* Google Chrome: **All major versions**
+* Mozilla Firefox:  **All major versions**
+
 ## Maintainer
 
 - Mauricio Soares - <http://github.com/msodeveloper>
