@@ -15,6 +15,14 @@ h1, h2, h3 {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+p {
+  color: #383838;
+}
+
 /* Layout */
 .header {
   position: relative;
@@ -37,4 +45,51 @@ h1, h2, h3 {
 .container {
   width: 760px;
   float: left;
+}
+
+/* Modules */
+.sidebar-item {
+  margin-bottom: 20px;
+}
+
+.sidebar-item-link {
+  font-size: 16px;
+  color: black;
+}
+
+.sidebar-item-link:hover {
+  text-decoration: underline;
+}
+
+.sidebar-item-sub-item {
+  margin-top: 2px;
+}
+
+.sidebar-item-sub-item-link {
+  color: #383838;
+}
+
+.sidebar-item-sub-item-link:hover {
+  text-decoration: underline;
+}
+
+.container-item {
+  margin-bottom: 30px;
+  border-top: 1px solid #D5D5D5;
+  padding-top: 20px;
+}
+
+.container-item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.container-title {
+  font-size: 24px;
+}
+
+.container-subtitle {
+  font-size: 18px;
+  color: #383838;
+  margin-top: 20px;
 }

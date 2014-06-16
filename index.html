@@ -30,10 +30,10 @@
             <a class="sidebar-item-link" href="#Namespaces">Namespaces</a>
             <ul class="sidebar-item-sub">
               <li class="sidebar-item-sub-item">
-                <a href="#Namespaces-simple-namespace" class="sidebar-item-sub-item">Simple namespace</a>
+                <a href="#Namespaces-simple-namespace" class="sidebar-item-sub-item-link">Simple namespace</a>
               </li>
               <li class="sidebar-item-sub-item">
-                <a href="#Namespaces-deeper-namespace" class="sidebar-item-sub-item">Deeper namespaces</a>
+                <a href="#Namespaces-deeper-namespace" class="sidebar-item-sub-item-link">Deeper namespaces</a>
               </li>
             </ul>
           </li>
@@ -43,10 +43,10 @@
             <a class="sidebar-item-link" href="#Constructors">Constructors</a>
             <ul class="sidebar-item-sub">
               <li class="sidebar-item-sub-item">
-                <a href="#Constructors-prototype" class="sidebar-item-sub-item">Prototype</a>
+                <a href="#Constructors-prototype" class="sidebar-item-sub-item-link">Prototype</a>
               </li>
               <li class="sidebar-item-sub-item">
-                <a href="#Constructors-fn" class="sidebar-item-sub-item">fn</a>
+                <a href="#Constructors-fn" class="sidebar-item-sub-item-link">fn</a>
               </li>
             </ul>
           </li>
@@ -56,10 +56,10 @@
             <a class="sidebar-item-link" href="#Initialize">Initialize</a>
             <ul class="sidebar-item-sub">
               <li class="sidebar-item-sub-item">
-                <a href="#Initialize-simple-usage" class="sidebar-item-sub-item">Simple Usage</a>
+                <a href="#Initialize-simple-usage" class="sidebar-item-sub-item-link">Simple Usage</a>
               </li>
               <li class="sidebar-item-sub-item">
-                <a href="#Initialize-parameters-to-constructor" class="sidebar-item-sub-item">Parameters to constructor</a>
+                <a href="#Initialize-parameters-to-constructor" class="sidebar-item-sub-item-link">Parameters to constructor</a>
               </li>
             </ul>
           </li>
@@ -69,7 +69,7 @@
             <a class="sidebar-item-link" href="#Decorators">Decorators</a>
             <ul class="sidebar-item-sub">
               <li class="sidebar-item-sub-item">
-                <a href="#Decorators-simple-usage" class="sidebar-item-sub-item">Simple Usage</a>
+                <a href="#Decorators-simple-usage" class="sidebar-item-sub-item-link">Simple Usage</a>
               </li>
             </ul>
           </li>
@@ -79,16 +79,16 @@
             <a class="sidebar-item-link" href="#EventEmitter">Event Emitter</a>
             <ul class="sidebar-item-sub">
               <li class="sidebar-item-sub-item">
-                <a href="#EventEmitter-on" class="sidebar-item-sub-item">on</a>
+                <a href="#EventEmitter-on" class="sidebar-item-sub-item-link">on</a>
               </li>
               <li class="sidebar-item-sub-item">
-                <a href="#EventEmitter-emit" class="sidebar-item-sub-item">emit</a>
+                <a href="#EventEmitter-emit" class="sidebar-item-sub-item-link">emit</a>
               </li>
               <li class="sidebar-item-sub-item">
-                <a href="#EventEmitter-once" class="sidebar-item-sub-item">once</a>
+                <a href="#EventEmitter-once" class="sidebar-item-sub-item-link">once</a>
               </li>
               <li class="sidebar-item-sub-item">
-                <a href="#EventEmitter-removeListener" class="sidebar-item-sub-item">removeListener</a>
+                <a href="#EventEmitter-removeListener" class="sidebar-item-sub-item-link">removeListener</a>
               </li>
             </ul>
           </li>
@@ -98,13 +98,13 @@
             <a class="sidebar-item-link" href="#Modules">Modules</a>
             <ul class="sidebar-item-sub">
               <li class="sidebar-item-sub-item">
-                <a href="#Modules-constructors-as-modules" class="sidebar-item-sub-item">Constructors as modules</a>
+                <a href="#Modules-constructors-as-modules" class="sidebar-item-sub-item-link">Constructors as modules</a>
               </li>
               <li class="sidebar-item-sub-item">
-                <a href="#Modules-your-module" class="sidebar-item-sub-item">Your module</a>
+                <a href="#Modules-your-module" class="sidebar-item-sub-item-link">Your module</a>
               </li>
               <li class="sidebar-item-sub-item">
-                <a href="#Modules-list-of-modules" class="sidebar-item-sub-item">List of modules</a>
+                <a href="#Modules-list-of-modules" class="sidebar-item-sub-item-link">List of modules</a>
               </li>
             </ul>
           </li>
@@ -117,18 +117,18 @@
       </div>
 
       <div class="container">
-        <div id="Overview">
-          <h2>Overview</h2>
+        <div class="container-item" id="Overview">
+          <h2 class="container-title">Overview</h2>
           <p>
-            The main purpose that Nox was created was to help developers giving a nice and easy structure to their websites and apps.
+            The main purpose that Nox was created was to help developers giving a nice structure to their websites and apps.
           </p>
 
           <p>
-            It won't replace any full featured framework (Such as Backbone, AngularJS, Ember and som many others), because it doesn't have "magic" methods that will help you do your logic.
+            It won't replace any full featured framework (Such as Backbone, AngularJS, Ember and som many others), because it doesn't have "magical" methods that will help you do your logic.
           </p>
 
           <p>
-            Basically everything you have to do by your own hands, but it helps you with some common patterns, such as Namespaces, Constructors, Modules, Dependency Injection, Emitters and Decorators.
+            Basically everything you to do by your own hands, but it helps you with some common patterns, such as Namespaces, Constructors, Modules, Dependency Injection, Emitters and Decorators.
           </p>
 
           <p>
@@ -138,11 +138,11 @@
           <p>So let's see how we can do things happen when using Nox.js</p>
         </div>
 
-        <div id="Namespaces">
-          <h2>Namespaces</h2>
+        <div class="container-item" id="Namespaces">
+          <h2 class="container-title">Namespaces</h2>
           <p>When you create namespace in Nox, you add a Constructor to that namespace</p>
 
-          <h3 id="Namespaces-simple-namespace">Simple Namespaces</h3>
+          <h3 class="container-subtitle" id="Namespaces-simple-namespace">Simple Namespaces</h3>
 
           <p>
             The simple way to do this is to create a single index namespace.
@@ -158,13 +158,17 @@ typeof App; // function
 </code>
 </pre>
 
-          <h3 id="Namespaces-deeper-namespace">Deeper Namespaces</h3>
+          <h3 class="container-subtitle" id="Namespaces-deeper-namespace">Deeper Namespaces</h3>
           <p>
             You can also create more complex namespaces, using as many indexes you want. It won't replace a previous one created.
           </p>
 
 <pre>
 <code class="language-javascript">
+Nox('App.Home', function() {
+
+});
+
 Nox('App.Home.form', function() {
 
 });
@@ -173,6 +177,7 @@ Nox('App.Home.view', function() {
 
 });
 
+typeof App.Home; // function
 typeof App.Home.form; // function
 typeof App.Home.view; // function
 </code>
@@ -180,8 +185,8 @@ typeof App.Home.view; // function
 
         </div>
 
-        <div id="Constructors">
-          <h2>Constructors</h2>
+        <div class="container-item" id="Constructors">
+          <h2 class="container-title">Constructors</h2>
           <p>
             When you create a namespace, a constructor is attached to it, so you can easily create instances of that constructors in the old fashioned way!
           </p>
@@ -195,7 +200,7 @@ var instanceOfForm = new App.Home.form(); // function
 </code>
 </pre>
 
-          <h3 id="Constructors-prototype">Prototype</h3>
+          <h3 class="container-subtitle" id="Constructors-prototype">Prototype</h3>
 
           <p>
             What's the purpose of having a constructors without prototypes? Look how easy you can do that.
@@ -218,7 +223,7 @@ instanceOfForm.myMethod(); // true
 </code>
 </pre>
 
-          <h3 id="Constructors-fn">fn</h3>
+          <h3 class="container-subtitle" id="Constructors-fn">fn</h3>
           <p>
             It's quite boring to type the word "prototype" everytime... But there's a solution! You can use the word "fn" as an alias to prototype.
           </p>
@@ -241,34 +246,310 @@ instanceOfForm.mySecondMethod(); // false
 </pre>
         </div>
 
-        <div id="Initialize">
-          <h2>Initialize</h2>
-          <h3 id="Initialize-simple-usage">simple usage</h3>
-          <h3 id="Initialize-parameters-to-constructor">Parameters</h3>
+        <div class="container-item" id="Initialize">
+          <h2 class="container-title">Initialize</h2>
+
+          <p>
+            If you attach an method called "initialize" the prototype of your constructor, then it's automatically called when an instance is created.
+          </p>
+
+          <h3 class="container-subtitle" id="Initialize-simple-usage">Simple Usage</h3>
+<pre>
+<code class="language-javascript">
+Nox('App', function(app) {
+  app.fn.initialize = function() {
+    console.log('Instance created');
+  };
+});
+
+var instanceOfForm = new App(); // Log: Instance created
+</code>
+</pre>
+
+          <h3 class="container-subtitle" id="Initialize-parameters-to-constructor">Parameters to Constructor</h3>
+          <p>
+            If you want to pass some parameters to your constructor when an instance is created, you can use the initialize method.
+          </p>
+<pre>
+<code class="language-javascript">
+Nox('App', function(app) {
+  app.fn.initialize = function(param1, param2) {
+    console.log(param1);
+    console.log(param2);
+  };
+});
+
+var instanceOfForm = new App(true, false); // Log: true, Log: false
+</code>
+</pre>
         </div>
 
-        <div id="Decorators">
-          <h2>Decorators</h2>
-          <h3 id="Decorators-simple-usage">simple usage</h3>
+        <div class="container-item" id="Decorators">
+          <h2 class="container-title">Decorators</h2>
+          <p>
+            It's pretty simple to use this pattern when you are using Noxjs, all instances already have a method decorate on it.
+          </p>
+          <h3 class="container-subtitle" id="Decorators-simple-usage">Simple Usage</h3>
+
+          <p>
+            First of all create your Nox method, then using Nox.decorator you can pass as the first parameter the name of the constructor which will receive the decorator and the name of the decorator, separated with "underline", like this: "App_decorator"
+          </p>
+
+          <p>
+            The second parameter is an object, and inside of that all the methods which will be decorated.
+          </p>
+
+          <p>
+            When using decorators, your instance has an object called "uber", which points to the previous instance of your instance.
+          </p>
+
+<pre>
+<code class="language-javascript">
+Nox('Sale', function(sale) {
+  sale.fn.initialize = function(price) {
+    this.price = price;
+  };
+
+  sale.fn.getPrice = function() {
+    return this.price;
+  };
+});
+
+// Now I'll create some decorators, for different taxes
+// Sale stands to the nox constructor
+// tax1 is the decorator
+Nox.decorator('Sale_tax1', {
+  getPrice: function() {
+    // uber points to the previous reference of sale
+    var price = this.uber.getPrice();
+    return price += 50;
+  }
+});
+
+Nox.decorator('Sale_tax2', {
+  getPrice: function() {
+    var price = this.uber.getPrice();
+    return price += 30;
+  }
+});
+
+var sale = new Sale(100);
+var sale2 = new Sale(100);
+
+sale = sale.decorate('tax1');
+sale = sale.decorate('tax2');
+sale.getPrice(); // 180
+sale2.getPrice(); // 100
+</code>
+</pre>
+
         </div>
 
-        <div id="EventEmitter">
-          <h2>Event Emitter</h2>
-          <h3 id="EventEmitter-on">ON</h3>
-          <h3 id="EventEmitter-emit">Emit</h3>
-          <h3 id="EventEmitter-once">once</h3>
-          <h3 id="EventEmitter-removeListener">remove listener</h3>
+        <div class="container-item" id="EventEmitter">
+          <h2 class="container-title">Event Emitter</h2>
+          <p>
+            Using event emitters makes your app simpler, because you can catch events in any part of your app, and with Nox it's dead simple to use it.
+          </p>
+
+          <p>
+            All instances has those 4 methods, "on", "emit", "once", "removeListener".
+          </p>
+
+          <h3 class="container-subtitle" id="EventEmitter-on">on</h3>
+          <p>
+            With "on" you can attach an event to the instance.
+          </p>
+<pre>
+<code class="language-javascript">
+Nox('App', function(app) {
+  app.fn.initialize = function() {
+    // when an instance is created, we attach an event to the instance
+    this.on('custom-event', this.customCallback);
+  };
+
+  app.fn.customCallback = function() {
+    console.log('Custom callback called');
+  }
+});
+
+var instanceOfForm = new App();
+</code>
+</pre>
+
+          <h3 class="container-subtitle" id="EventEmitter-emit">emit</h3>
+          <p>
+            "emit" is used to trigger the previous created event.
+          </p>
+<pre>
+<code class="language-javascript">
+Nox('App', function(app) {
+  app.fn.initialize = function() {
+    // when an instance is created, we attach an event to the instance
+    this.on('custom-event', this.customCallback);
+  };
+
+  app.fn.customCallback = function() {
+    console.log('Custom callback called');
+  }
+});
+
+var instanceOfForm = new App();
+instanceOfForm.emit('custom-event'); // Log: Custom callback called
+</code>
+</pre>
+
+          <p>
+            You can use those instances inside other Nox modules, and also emit events from a module to another.
+          </p>
+
+          <h3 class="container-subtitle" id="EventEmitter-once">once</h3>
+          <p>
+            If you want an event to be triggered only once, you can use the "once" method.
+          </p>
+<pre>
+<code class="language-javascript">
+Nox('App', function(app) {
+  app.fn.initialize = function() {
+    // when an instance is created, we attach an event to the instance
+    this.once('custom-event', this.customCallback);
+  };
+
+  app.fn.customCallback = function() {
+    console.log('Custom callback called');
+  }
+});
+
+var instanceOfForm = new App();
+instanceOfForm.emit('custom-event'); // Log: Custom callback called
+instanceOfForm.emit('custom-event'); // Nothing happens
+</code>
+</pre>
+
+          <h3 class="container-subtitle" id="EventEmitter-removeListener">removeListener</h3>
+          <p>
+            You can easily remove events using the "removeListener" method.
+          </p>
+<pre>
+<code class="language-javascript">
+Nox('App', function(app) {
+  app.fn.initialize = function() {
+    // when an instance is created, we attach an event to the instance
+    this.on('custom-event', this.customCallback);
+  };
+
+  app.fn.customCallback = function() {
+    console.log('Custom callback called');
+    this.removeListener('custom-event');
+  }
+});
+
+var instanceOfForm = new App();
+instanceOfForm.emit('custom-event'); // Log: Custom callback called
+instanceOfForm.emit('custom-event'); // Nothing happens, because the event was removed.
+</code>
+</pre>
         </div>
 
-        <div id="Modules">
-          <h2>Modules</h2>
-          <h3 id="Modules-constructors-as-modules">constructors as modules</h3>
-          <h3 id="Modules-your-module">your module</h3>
-          <h3 id="Modules-list-of-modules">List of modules</h3>
+        <div class="container-item" id="Modules">
+          <h2 class="container-title">Modules</h2>
+          <p>
+            A cool thing about Nox is that every custom module can be included with dependency injection, let's say you want to use the "events" module.
+          </p>
+
+          <p>
+            If you want to include a module, it must be passed between the namespace and the constructor function, you can pass an Array of modules, or all modules as single parameters.
+          </p>
+
+          <p>
+            And to all modules you pass, you have to use a parameter into the constructors function.
+          </p>
+
+<pre>
+<code class="language-javascript">
+Nox('App', 'module1', 'module2', function(app, module1, module2) {
+
+});
+
+Nox('App2', ['module1', 'module2'], function(app, module1, module2) {
+
+});
+</code>
+</pre>
+
+          <h3 class="container-subtitle" id="Modules-constructors-as-modules">Constructors as modules</h3>
+          <p>
+            All constructors you created using Nox, automatically becomes a Nox module, so you can inject them into another constructor, and so on...
+          </p>
+
+          <p>
+            To include them, simply use the namespace you used to create it.
+          </p>
+
+<pre>
+<code class="language-javascript">
+Nox('App.Home.view', function(app) {
+
+});
+
+Nox('New.namespace', 'App.Home.view' function(namespace, view) {
+  // the variable view points to the App.Home.view constructor
+})
+</code>
+</pre>
+
+          <h3 class="container-subtitle" id="Modules-your-module">Your Module</h3>
+          <p>
+            You can easily create your own modules, using Nox.module.
+          </p>
+
+<pre>
+<code class="language-javascript">
+```js
+Nox.module('myCoolModule', function() {
+  var myCoolModule = {};
+
+  myCoolModule.myCoolMethod: function() {
+    return 'Nox :)';
+  };
+
+  return myCoolModule;
+});
+
+// usage
+Nox('App', 'myCoolModule', function(app, myCoolModule) {
+  myCoolModule.myCoolMethod(); // Nox :)
+})
+```
+</code>
+</pre>
+
+          <h3 class="container-subtitle" id="Modules-list-of-modules">List of modules</h3>
+          <p>
+            A list of all modules created to use with Nox.
+            <ul>
+              <li>
+                <a href="https://github.com/noxjs/noxjs-events">Events</a>
+              </li>
+            </ul>
+          </p>
         </div>
 
-        <div id="BrowserSupport">
-          <h2>Browser Support</h2>
+        <div class="container-item" id="BrowserSupport">
+          <h2 class="container-title">Browser Support</h2>
+          <p>
+            Nox.js supports the most used browsers:
+            <ul>
+              <li>
+                Google Chrome: <b>All major versions</b>
+              </li>
+              <li>
+                Mozilla Firefox: <b>All major versions</b>
+              </li>
+              <li>
+                Internet Explorer: <b>7+</b>
+              </li>
+            </ul>
+          </p>
         </div>
       </div>
     </div>
