@@ -6,7 +6,8 @@ module.exports = function(grunt) {
     'grunt-contrib-concat',
     'grunt-contrib-jasmine',
     'grunt-contrib-watch',
-    'grunt-contrib-uglify'
+    'grunt-contrib-uglify',
+    'grunt-bump'
   ];
 
   var config = {};
@@ -20,6 +21,24 @@ module.exports = function(grunt) {
               '* Copyright (c) <%= grunt.template.today(\'yyyy\') %> Mauricio Soares de Oliveira;\n' +
               '* Licensed <%= pkg.license %> \n*/\n\n'
   }
+
+  // =============================================
+  // bump
+
+  config.bump = {};
+  config.bump.options = {
+    files: ['package.json'],
+    updateConfigs: [],
+    commit: true,
+    commitMessage: 'Release v%VERSION%',
+    commitFiles: ['package.json'],
+    createTag: true,
+    tagName: 'v%VERSION%',
+    tagMessage: 'Version %VERSION%',
+    push: true,
+    pushTo: 'master',
+    gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
+  };
 
   // =============================================
   // jshint
