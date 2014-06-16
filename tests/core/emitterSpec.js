@@ -77,4 +77,27 @@ describe('Testing emitters implementation', function() {
 
     expect(foo.fn).not.toHaveBeenCalled();
   });
+
+  it('should emit all the events using the same name', function() {
+    var foo = {
+      fn1: function() {},
+      fn2: function() {}
+    };
+
+    spyOn(foo, 'fn1');
+    spyOn(foo, 'fn2');
+
+    Nox('App', function(app) {
+      app.fn.initialize = function() {
+        this.on('emitter-test', foo.fn1);
+        this.on('emitter-test', foo.fn2);
+      };
+    });
+
+    var instanceOfApp = new App();
+    instanceOfApp.emit('emitter-test');
+
+    expect(foo.fn1).toHaveBeenCalled();
+    expect(foo.fn2).toHaveBeenCalled();
+  });
 });
