@@ -119,3 +119,29 @@ p {
 .link-download:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 960px) {
+  .sidebar {
+    display: none;
+  }
+
+  .wrapper, .container {
+    width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper, .container {
+    width: 320px;
+  }
+
+  .logo-link {
+    display: none;
+  }
+
+  .logo-img {
+    float: none;
+    display: block;
+    margin: auto;
+  }
+}
