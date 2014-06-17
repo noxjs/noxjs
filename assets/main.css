@@ -132,7 +132,8 @@ p {
 
 @media (max-width: 600px) {
   .wrapper, .container {
-    width: 320px;
+    width: 300px;
+    padding: 0 10px;
   }
 
   .logo-link {
