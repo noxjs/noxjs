@@ -93,3 +93,29 @@ p {
   color: #383838;
   margin-top: 20px;
 }
+
+.logo {
+  height: 50px;
+}
+
+.logo-img {
+  float:left;
+}
+
+.logo-link {
+  float: left;
+  margin-top: 7px;
+  margin-left: 10px;
+  color: #383838;
+}
+
+.link-download {
+  color: rgb(48, 48, 48);
+  font-size: 14px;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+.link-download:hover {
+  text-decoration: underline;
+}
