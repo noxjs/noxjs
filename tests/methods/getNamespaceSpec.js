@@ -18,14 +18,14 @@ describe('Testing getNamespace method', function() {
       args = ['1.App.Home', 2, 3, 4];
       expect(function() {
         Nox.methods.getNamespace(args);
-      }).toThrow(new Error('Any of variables separated by dots can be a number or start with a number'));
+      }).toThrow(new Error('None of the variables separated by dots can be a number or start with a number'));
     });
 
     it('Should throw an error if second separated by dot is number', function() {
       args = ['App.1.Home', 2, 3, 4];
       expect(function() {
         Nox.methods.getNamespace(args);
-      }).toThrow(new Error('Any of variables separated by dots can be a number or start with a number'));
+      }).toThrow(new Error('None of the variables separated by dots can be a number or start with a number'));
     });
   });
 
@@ -34,14 +34,14 @@ describe('Testing getNamespace method', function() {
       args = ['1App.Home', 2, 3, 4];
       expect(function() {
         Nox.methods.getNamespace(args);
-      }).toThrow(new Error('Any of variables separated by dots can be a number or start with a number'));
+      }).toThrow(new Error('None of the variables separated by dots can be a number or start with a number'));
     });
 
     it('Should throw an error if second separated by dot starts with a number', function() {
       args = ['App.1Home', 2, 3, 4];
       expect(function() {
         Nox.methods.getNamespace(args);
-      }).toThrow(new Error('Any of variables separated by dots can be a number or start with a number'));
+      }).toThrow(new Error('None of the variables separated by dots can be a number or start with a number'));
     });
   });
 });
