@@ -1,0 +1,24 @@
+{
+  "name": "noxjs",
+  "version": "0.2.5",
+  "homepage": "http://noxjs.github.io/noxjs/",
+  "authors": [
+    "Mauricio Soares <m.soares2603@gmail.com>"
+  ],
+  "description": "Structure for your apps",
+  "main": "dist/nox.js",
+  "keywords": [
+    "noxjs",
+    "nox",
+    "constructors"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ]
+}
