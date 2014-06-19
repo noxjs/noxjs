@@ -13,7 +13,7 @@
     var namespace = arr.shift();
 
     if(typeof namespace !== 'string') {
-      throw new Error('First must be a string');
+      throw new Error('First parameter must be a string');
     }
 
     namespace = namespace.split('.');
@@ -21,7 +21,7 @@
     // checks if the string is only a number, or if it starts with a number
     for(var i = 0; i < namespace.length; i += 1) {
       if(!/(^[a-z])|(^[A-Z])|(^\$)|(^\_)/.test(namespace[i])) {
-        throw new Error('None of the variables separated by dots can be a number or start with a number');
+        throw new Error('The namespace must contain only valid variables');
       }
     }
 
