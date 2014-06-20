@@ -479,23 +479,36 @@ instanceOfForm.emit('custom-event'); // Nothing happens
           <p>
             You can easily remove events using the "removeListener" method.
           </p>
+
+          <p>
+            You are able to delete a single event (<b>if it's a named function</b>), or remove all events if no callback is specified.
+          </p>
 <pre>
 <code class="language-javascript">
 Nox('App', function(app) {
   app.fn.initialize = function() {
     // when an instance is created, we attach an event to the instance
-    this.on('custom-event', this.customCallback);
+    this.on('custom-event', this.customCallback1);
+    this.on('custom-event', this.customCallback2);
+
+    // Only customCallback1 is removed
+    this.removeListener('custom-event', this.customCallback1);
   };
 
-  app.fn.customCallback = function() {
-    console.log('Custom callback called');
-    this.removeListener('custom-event');
+  app.fn.customCallback1 = function() {
+    console.log('callback1');
+  }
+  app.fn.customCallback2 = function() {
+    console.log('callback2');
   }
 });
 
 var instanceOfForm = new App();
-instanceOfForm.emit('custom-event'); // Log: Custom callback called
-instanceOfForm.emit('custom-event'); // Nothing happens, because the event was removed.
+instanceOfForm.emit('custom-event'); // Log: callback2
+
+// removes all callbacks
+instanceOfForm.removeListener('custom-event');
+instanceOfForm.emit('custom-event'); // nothing is logged
 </code>
 </pre>
         </div>
