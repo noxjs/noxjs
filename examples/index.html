@@ -71,7 +71,7 @@
     Nox('Emitter', function(app) {
       app.fn.initialize = function() {
         // little trick, waiting to add the ON on the instance
-        setInterval(this.emit.bind(this, 'custom-emitter', true), 1000);
+        // setInterval(this.emit.bind(this, 'custom-emitter', true), 1000);
       };
     });
 
