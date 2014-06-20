@@ -58,7 +58,7 @@ describe('Testing emitters implementation', function() {
     expect(foo.fn.calls.count()).toEqual(1);
   });
 
-  it('should delete the event before it is emitted', function() {
+  it('should delete all the events before it is emitted', function() {
     var foo = {
       fn: function() {}
     };
@@ -76,6 +76,30 @@ describe('Testing emitters implementation', function() {
     instanceOfApp.emit('emitter-test');
 
     expect(foo.fn).not.toHaveBeenCalled();
+  });
+
+  it('should delete a specif event before it is emitted', function() {
+    var foo = {
+      fn1: function() {},
+      fn2: function() {}
+    };
+
+    spyOn(foo, 'fn1');
+    spyOn(foo, 'fn2');
+
+    Nox('App', function(app) {
+      app.fn.initialize = function() {
+        this.on('emitter-test', foo.fn1);
+        this.on('emitter-test', foo.fn2);
+        this.removeListener('emitter-test', foo.fn1);
+      };
+    });
+
+    var instanceOfApp = new App();
+    instanceOfApp.emit('emitter-test');
+
+    expect(foo.fn1).not.toHaveBeenCalled();
+    expect(foo.fn2).toHaveBeenCalled();
   });
 
   it('should emit all the events using the same name', function() {
