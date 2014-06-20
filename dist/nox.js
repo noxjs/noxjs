@@ -1,4 +1,4 @@
-/** nox.js - v0.2.5 - 2014-06-18
+/** nox.js - v0.2.6 - 2014-06-20
 * Copyright (c) 2014 Mauricio Soares de Oliveira;
 * Licensed MIT 
 */
@@ -179,11 +179,18 @@
     }
 
     if(typeof fn.removeListener !== 'function') {
-      fn.removeListener = function(event) {
+      fn.removeListener = function(event, listener) {
         var idx;
 
         if(typeof this.events[event] === 'object') {
-          delete this.events[event];
+          if(!listener) {
+            delete this.events[event];
+          } else {
+            idx = Nox.methods.indexOf(this.events[event], listener);
+            if (idx > -1) {
+              this.events[event].splice(idx, 1);
+            }
+          }
         }
       };
     }
@@ -288,7 +295,7 @@
     var namespace = arr.shift();
 
     if(typeof namespace !== 'string') {
-      throw new Error('First must be a string');
+      throw new Error('First parameter must be a string');
     }
 
     namespace = namespace.split('.');
@@ -296,7 +303,7 @@
     // checks if the string is only a number, or if it starts with a number
     for(var i = 0; i < namespace.length; i += 1) {
       if(!/(^[a-z])|(^[A-Z])|(^\$)|(^\_)/.test(namespace[i])) {
-        throw new Error('None of the variables separated by dots can be a number or start with a number');
+        throw new Error('The namespace must contain only valid variables');
       }
     }
 
