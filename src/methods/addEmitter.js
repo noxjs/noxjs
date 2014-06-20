@@ -24,11 +24,18 @@
     }
 
     if(typeof fn.removeListener !== 'function') {
-      fn.removeListener = function(event) {
+      fn.removeListener = function(event, listener) {
         var idx;
 
         if(typeof this.events[event] === 'object') {
-          delete this.events[event];
+          if(!listener) {
+            delete this.events[event];
+          } else {
+            idx = Nox.methods.indexOf(this.events[event], listener);
+            if (idx > -1) {
+              this.events[event].splice(idx, 1);
+            }
+          }
         }
       };
     }
