@@ -23,7 +23,7 @@
     // checks if the module exists
     for(i = 0; i < modules.length; i += 1) {
       if(!Nox.modules[modules[i]]) {
-        throw new Error('This module doesn\'t exists');
+        throw new Error('The module "' + modules[i] + '" doesn\'t exist');
       }
     }
 
