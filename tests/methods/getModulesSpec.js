@@ -39,6 +39,6 @@ describe('Testing getModules method', function() {
   it('Should throw an error if the module doesn\'t exist', function() {
     expect(function() {
       Nox.methods.getModules(['noModuleHere']);
-    }).toThrow(new Error('This module doesn\'t exists'));
+    }).toThrow(new Error('The module "noModuleHere" doesn\'t exist'));
   });
 });
