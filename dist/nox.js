@@ -1,4 +1,4 @@
-/** nox.js - v0.2.6 - 2014-06-20
+/** nox.js - v0.2.7 - 2014-06-22
 * Copyright (c) 2014 Mauricio Soares de Oliveira;
 * Licensed MIT 
 */
@@ -272,7 +272,7 @@
     // checks if the module exists
     for(i = 0; i < modules.length; i += 1) {
       if(!Nox.modules[modules[i]]) {
-        throw new Error('This module doesn\'t exists');
+        throw new Error('The module "' + modules[i] + '" doesn\'t exist');
       }
     }
 
